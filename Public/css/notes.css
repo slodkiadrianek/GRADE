@@ -1,0 +1,41 @@
+.textarea--box {
+  resize: none;
+  background-color: #464646;
+  border: none;
+  border-radius: 0.4vmax;
+  width: max-content;
+  font-family: var(--Font);
+  font-size: 1.5vmax;
+  padding: 0.5vmax;
+  outline: none;
+  color: whitesmoke;
+}
+.show--content {
+  width: 100%;
+  flex-direction: column;
+}
+.where--add--text,
+.add--text {
+  background-color: rgb(0, 153, 255);
+  font-family: var(--Font);
+  color: whitesmoke;
+  font-size: 1.3vmax;
+  padding: 1vmax 2vmax;
+  border: 0.2vmax rgb(0, 153, 255) solid;
+  border-radius: 0.4vmax;
+  cursor: pointer;
+  text-align: center;
+}
+.where--add--text {
+  padding: 0.92vmax 2vmax;
+}
+.sheets--box {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+.sheet-box {
+  background-color: #464646;
+  padding: 1vmax 2vmax;
+  border-radius: 0.4vmax;
+  width: fit-content;
+}

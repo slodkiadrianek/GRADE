@@ -1,0 +1,173 @@
+@import url("https://fonts.googleapis.com/css2?family=Madimi+One&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rubik+Mono+One&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --Font: "Montserrat";
+}
+body {
+  min-height: 100vh;
+  background-color: #292929;
+  display: flex;
+  /* flex-direction: column; */
+  font-family: var(--Font);
+  overflow-x: hidden;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* background-color: rgb(34, 34, 34); */
+  color: whitesmoke;
+  padding: 2vmax 2vmax;
+  padding-top: 1vmax;
+  font-family: var(--Font);
+}
+.logo--title--box {
+  display: flex;
+  align-items: center;
+  gap: 1vmax;
+}
+.list {
+  list-style-type: none;
+  margin-right: 1vmax;
+}
+.list--element {
+  display: inline;
+  margin-right: 1vmax;
+  font-size: 1vmax;
+}
+.section--title,
+.title {
+  color: white;
+  font-size: 3vmax;
+  font-family: var(--Font);
+}
+.link {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2vmax;
+}
+.pressure,
+.condition,
+.humidity,
+.feelsTemperature,
+.temperature,
+.user--title,
+.link:hover {
+  color: #20de3f;
+}
+
+.side--bar {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1vmax;
+  background-color: #444444;
+  /* width: max-content;
+  height: fit-content; */
+  padding: 1vmax;
+  /* border-top-right-radius: 0.4vmax;
+  border-bottom-right-radius: 0.4vmax; */
+}
+.icon-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5vmax;
+  font-size: 2vmax;
+  padding: 0.6vmax 0.2vmax;
+  cursor: pointer;
+}
+.icon-box:hover {
+  background-color: #20de3f;
+}
+.icon--box--bigger {
+  width: 20vmax;
+  color: white;
+  font-size: 2vmax;
+}
+.link {
+  color: white;
+  text-decoration: none;
+  font-size: 1.8vmax;
+}
+.main--content--box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.show--content {
+  display: flex;
+  flex-direction: column;
+  column-gap: 3vmax;
+  row-gap: 2vmax;
+  margin-left: 2vmax;
+  margin-right: 2vmax;
+}
+.calendar--box,
+.goal--box,
+.todolist--box,
+.weather--box {
+  height: 17vmax;
+  font-family: var(--Font);
+  color: white;
+  background-color: #464646;
+  padding: 2vmax 1.7vmax;
+  padding-right: 1vmax;
+  border-radius: 0.4vmax;
+}
+.part--box {
+  display: flex;
+  column-gap: 3vmax;
+}
+.weather--box {
+  width: 40%;
+}
+.calendar--box {
+  width: 60%;
+}
+
+.box--title {
+  font-size: 1.5vmax;
+  margin-bottom: 0.5vmax;
+}
+.common--text {
+  font-family: var(--Font);
+  font-size: 1.2vmax;
+  margin-bottom: 1vmax;
+  font-weight: 500;
+}
+.list--element {
+  font-size: 1.3vmax;
+  text-decoration: none;
+  color: white;
+}
+.list--box-1 {
+  display: flex;
+  flex-direction: column;
+}
+
+/* width
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+/* ::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+} */
+
+/* Handle */
+/* ::-webkit-scrollbar-thumb {
+  background: grey; 
+  border-radius: 10px;
+} */
+
+/* Handle on hover */
+/* ::-webkit-scrollbar-thumb:hover {
+  background: grey; 
+}  */
