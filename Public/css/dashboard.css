@@ -119,9 +119,14 @@ body {
   padding-right: 1vmax;
   border-radius: 0.4vmax;
 }
+.title--box,
 .part--box {
   display: flex;
   column-gap: 3vmax;
+}
+.title--box {
+  align-items: center;
+  justify-content: space-between;
 }
 .weather--box {
   width: 40%;
