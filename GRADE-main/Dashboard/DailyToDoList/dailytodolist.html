@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do list</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/todolist.css">
+    <script defer src="js/todolistUse.js"></script>
+</head>
+<body>
+    <aside class="side--bar">
+        <figure class="icon-box" data-number="1">
+          <img
+            src="images/calendar-days-svgrepo-com (2).svg
+          "
+            alt=""
+          />
+        </figure>
+        <figure class="icon-box" data-number="2">
+          <a class="link" href="/changePassword"
+            ><img src="images/key-alt-svgrepo-com.svg" alt=""
+          /></a>
+        </figure>
+        <figure class="icon-box" data-number="3">
+          <a class="link" href="/todolist"
+            ><img src="images/check-lists-svgrepo-com.svg" alt=""
+          /></a>
+        </figure>
+        <figure class="icon-box" data-number="4">
+          <a class="link" href="/goal"
+            ><img src="images/goal-svgrepo-com (3).svg" alt=""
+          /></a>
+        </figure>
+        <figure class="icon-box" data-number="5">
+          <a class="link" href="/librus"
+            ><img src="images/link-svgrepo-com.svg" alt=""
+          /></a>
+        </figure>
+        <figure class="icon-box" data-number="6">
+          <a class="link" href="/notes"
+            ><img src="images/note-medical-svgrepo-com.svg" alt=""
+          /></a>
+        </figure>
+        <figure class="icon-box" data-number="7">
+          <a class="link" href="/translate"
+            ><img src="images/translate-02-svgrepo-com.svg" alt=""
+          /></a>
+        </figure>
+      </aside>
+
+
+      <main class="main--content--box">
+        <header class="header">
+          <figure class="logo--title--box">
+            <h1 class="title">Witaj, <span class="user--title">Adrian!</span></h1>
+          </figure>
+          <ul class="list">
+            <li class="list--element"><a class="link" href="/">Wyloguj</a></li>
+          </ul>
+        </header>
+
+        <section class="todo--Content">
+            <article class="input--content">
+                <button class="input--button">➕</button>
+                <input type="text" placeholder="Wpisz zadanie" class="input">
+                <input type="date" class="input--date">
+                    <select class="input--select" name="priority" id="">
+                        <option value="wysoki">Wysoki</option>
+                        <option value="sredni">Średni</option>
+                        <option value="niski">Niski</option>
+                    </select>
+            </article>
+            <article class="item">
+                
+                <button class="check--button checked--button"><input type="radio" class="check"></button>
+                <p class="task">Jakieś zadanie</p>
+                <p class="date">12.02.2023</p>
+                <p class="priority">Wysoki</p>
+                <button class="delete">🗑</button>
+            </article>
+        </section>
+        </main>
+  
+</body>
+</html>

@@ -1,0 +1,220 @@
+@import url("https://fonts.googleapis.com/css2?family=Madimi+One&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rubik+Mono+One&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --Font: "Montserrat";
+}
+body {
+  min-height: 100vh;
+  background-color: #292929;
+  display: flex;
+  /* flex-direction: column; */
+  font-family: var(--Font);
+  overflow-x: hidden;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* background-color: rgb(34, 34, 34); */
+  color: whitesmoke;
+  padding: 2vmax 2vmax;
+  padding-top: 1vmax;
+  font-family: var(--Font);
+}
+.logo--title--box {
+  display: flex;
+  align-items: center;
+  gap: 1vmax;
+}
+.list {
+  list-style-type: none;
+  margin-right: 1vmax;
+}
+.list--element {
+  display: flex;
+
+  margin-right: 1vmax;
+  font-size: 1vmax;
+}
+.section--title,
+.title {
+  color: white;
+  font-size: 3vmax;
+  font-family: var(--Font);
+}
+.link {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2vmax;
+}
+.pressure,
+.condition,
+.humidity,
+.feelsTemperature,
+.temperature,
+.user--title,
+.link:hover {
+  color: #20de3f;
+}
+
+.side--bar {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1vmax;
+  background-color: #444444;
+  padding: 1vmax;
+  padding-top: 1.8vmax;
+}
+.icon-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5vmax;
+  font-size: 2vmax;
+  padding: 0.6vmax 0.2vmax;
+  cursor: pointer;
+}
+.icon-box:hover {
+  background-color: #20de3f;
+}
+.icon--box--bigger {
+  width: 20vmax;
+  color: white;
+  font-size: 2vmax;
+}
+.link {
+  color: white;
+  text-decoration: none;
+  font-size: 1.8vmax;
+}
+.main--content--box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 1vmax;
+}
+.show--content {
+  display: flex;
+  flex-direction: column;
+  column-gap: 3vmax;
+  row-gap: 2vmax;
+  margin-left: 2vmax;
+  margin-right: 2vmax;
+}
+.lastNote--box,
+.calendar--box,
+.goal--box,
+.todolist--box,
+.weather--box {
+  font-family: var(--Font);
+  color: white;
+  background-color: #464646;
+  padding: 2vmax 1.7vmax;
+  padding-right: 1vmax;
+  border-radius: 0.4vmax;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+}
+.title--box,
+.part--box {
+  display: flex;
+  column-gap: 3vmax;
+}
+.title--box {
+  align-items: start;
+  justify-content: space-between;
+}
+.goal--box{
+  width: 30%;
+}
+.todolist--box{
+  width: 30%;
+}
+.lastNote--box{
+  width: 40%;
+  text-wrap: wrap;
+}
+.weather--box {
+  width: 40%;
+}
+.calendar--box {
+  width: 60%;
+}
+
+.box--title {
+  font-size: 1.5vmax;
+  margin-bottom: .6vmax;
+}
+.common--text {
+  font-family: var(--Font);
+  font-size: 1.2vmax;
+  margin-bottom: 1vmax;
+  font-weight: 500;
+}
+.list--element {
+  font-size: 1.3vmax;
+  text-decoration: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  column-gap: 1vmax;
+  margin-bottom: 1vmax;
+  justify-content: space-between;
+}
+.list--box-1 {
+  display: flex;
+  flex-direction: column;
+  margin-top: -0.1vmax;
+}
+.ball{
+  height: 0.9vmax;
+  background-color: white;
+  border-radius: 50%;
+  width: 0.9vmax;
+}
+.right--side,
+.left--side{
+  display: flex;
+  align-items: center;
+  column-gap: 1vmax;
+  cursor: pointer;
+  font-size: 1.5vmax;
+}
+.right--side{
+  cursor:auto;
+}
+.done{
+  color: #20de3f;
+  text-decoration: line-through;
+}
+.done--ball{
+  background-color: #20de3f;
+}
+
+/* width
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+/* ::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+} */
+
+/* Handle */
+/* ::-webkit-scrollbar-thumb {
+  background: grey; 
+  border-radius: 10px;
+} */
+
+/* Handle on hover */
+/* ::-webkit-scrollbar-thumb:hover {
+  background: grey; 
+}  */
