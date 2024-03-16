@@ -1,57 +1,42 @@
-'use strict'
+"use strict";
 
-const express = require('express')
+const express = require("express");
 const bodyParser = require("body-parser");
 
-
-const app = express()
+const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const path  = require('path')
+const path = require("path");
 
-app.use(express.static(path.join(__dirname, 'public')))
+const getError = require("./controllers/error");
 
+app.use(express.static(path.join(__dirname, "public")));
 
+const landingPage = require("./routes/LandingPage");
 
-const landingPageRouter = require('./Landing Page/LandingPage')
+const dashboards = require("./routes/dashboard");
 
-const DashboardRouter = require('./Dashboard/dashboard')
+const loginPage = require("./routes/logowanie");
 
-const loginRouter = require('./Login/logowanie')
+const notesPage = require("./routes/notes");
 
-const calendarRouter = require('./Dashboard/Calendar/calendar')
+const librusPage = require("./routes/librus");
 
-const changePasswordRouter = require('./Dashboard/ChangePassword/changepassword')
+const librusDashboard = require("./routes/librusDashboard");
 
-const dailytodolistRouter = require('./Dashboard/DailyToDoList/dailytodolist')
+app.use(librusDashboard);
 
-const goalRouter = require('./Dashboard/Goals/goals')
+app.use(landingPage);
 
-const notesRouter = require('./Dashboard/Notes/notes') 
+app.use(dashboards.router);
 
-const translateRouter = require('./Dashboard/Transletor/translatetor')
+app.use(loginPage);
 
-app.use(landingPageRouter)
+app.use(notesPage);
 
-app.use(DashboardRouter.router)
+app.use(librusPage);
 
-app.use(loginRouter)
+app.use(getError.get404);
 
-app.use(calendarRouter)
-
-app.use(changePasswordRouter)
-
-app.use(dailytodolistRouter)
-
-app.use(goalRouter)
-
-app.use(notesRouter)
-
-app.use(translateRouter)
-
-app.use((req,res,next) =>{
-    res.sendFile('404.html', {root: 'Dashboard'})
-})
-
-app.listen(3000)
+app.listen(3000);

@@ -1,78 +1,65 @@
-'use strict'
+"use strict";
+const textArea = document.querySelector(".text--area");
+const listBox = document.querySelector(".list--box");
+const Add = document.querySelector(".Add");
+const chooseSheet = document.querySelector(".choose--sheet");
 
-const addText = document.querySelector('.add--text')
-const textAreaBox = document.querySelector('.textarea--box')
-const whereAddText = document.querySelector('.where--add--text')
-const listBox = document.querySelector('.list--box-1')
-const leftSide = document.querySelector('.left--side')
-const note  = document.querySelector('.note')
-const sheet = document.querySelector('.sheet')
+const sheets = {
+  arkusz1: "",
+};
 
+const newOption = (name) => {
+  const html = `<option value="${name}">${name}</option>`;
+  chooseSheet.insertAdjacentHTML("afterbegin", html);
+};
 
-const allNotes = {
-    arkusz1: ``
-}
-const createSheet=  function(notes) {
-    listBox.textContent = ''
-
-    for(let [key,value] of Object.entries(notes)){
-        const html =`
-        <li class="list--element">
-        <div class="left--side">
-        <div class="ball"></div>
-        <p class="list--text">${key}</p>
-      </div>
-      
-      </li>`
-        listBox.insertAdjacentHTML('afterbegin', html)
+listBox.addEventListener("click", (e) => {
+  for (const el of listBox.children) {
+    el.classList.remove("active--sheet");
+  }
+  const target = e.target;
+  if (!target.classList.contains("active--sheet")) {
+    target.classList.add("active--sheet");
+    textArea.value = sheets[target.textContent];
+    console.log(chooseSheet);
+    for (let el of chooseSheet.children) {
+      if (el.value == target.textContent) {
+        el.setAttribute("selected", "tre");
+      } else {
+        el.removeAttribute("selected", "true");
+      }
     }
-}
+  }
+});
 
-// listBox.addEventListener('click', (e) =>{
-//     const target = e.target
-//     console.log(target);
-//     if( target.classList.contains('list--text')){
-//         target.classList.toggle('sheet--selected')
-//         target.previousElementSibling.classList.toggle('done--ball')
-//         note.textContent = allNotes[target.textContent]        
-//     }
-// })
+const listAllSheets = (sheets) => {
+  listBox.textContent = ``;
+  for (let key in sheets) {
+    const html = `
+    <li class="list--element">${key}</li>`;
+    listBox.insertAdjacentHTML("afterbegin", html);
+  }
+};
+listAllSheets(sheets);
 
-createSheet(allNotes)
-const listOfSheerts = document.querySelectorAll('.list--text')
+const clearTextArea = () => {
+  textArea.value = "";
+};
 
-listOfSheerts.forEach(el =>{
-    el.addEventListener('click', () =>{
-        el.classList.toggle('sheet--selected')
-        el.previousElementSibling.classList.toggle('done--ball')
-        note.textContent = allNotes[el.textContent]
-    })
-})
+const addContentToSheet = function (textAreaContent, WhichSheet) {
+  if (WhichSheet === "new") {
+    const newSHeet = prompt(`Podaj nazwę nowego arkusza`);
+    sheets[newSHeet] = "";
+    sheets[newSHeet] = textAreaContent;
+    listAllSheets(sheets);
+    newOption(newSHeet);
+    clearTextArea();
+  } else {
+    sheets[WhichSheet] = textAreaContent;
+    clearTextArea();
+  }
+};
 
-
-addText.addEventListener('click', ()=>{
-    const whichSheet = whereAddText.value  
-    if(whichSheet === '0'){
-        const newSheet = prompt(`Podaj nazwę nowego arkusza`)
-       for(let key of Object.keys(allNotes)){
-        if(newSheet!==key){
-            allNotes[newSheet] = textAreaBox.value 
-            const html = `
-            <option value="${newSheet}">${newSheet}</option>
-            `
-            whereAddText.insertAdjacentHTML('afterbegin', html)
-            createSheet(allNotes)
-            textAreaBox.value = ``
-
-        }else{ console.log('istnieje')}
-       }        
-    }else{           
-    allNotes[whichSheet] += textAreaBox.value
-    createSheet(allNotes)
-    textAreaBox.value = ``
-    } 
-})
-
-console.log('asdasd\nsdadad');
-
-
+Add.addEventListener("click", () => {
+  addContentToSheet(textArea.value, chooseSheet.value);
+});
