@@ -1,0 +1,94 @@
+<%- include('includes/head.ejs') %>
+<link rel="stylesheet" href="css/librusDashboard.css">
+<script></script>
+  </head>
+  <body>
+      <aside class="side--bar">
+      <figure class="icon-box" data-number="1">
+        <img
+          src="images/calendar-days-svgrepo-com (2).svg
+        "
+          alt=""
+        />
+      </figure>
+      <figure class="icon-box" data-number="2">
+        <a class="link" href="/changePassword"
+          ><img src="images/key-alt-svgrepo-com.svg" alt=""
+        /></a>
+      </figure>
+      <figure class="icon-box" data-number="3">
+        <a class="link" href="/todolist"
+          ><img src="images/check-lists-svgrepo-com.svg" alt=""
+        /></a>
+      </figure>
+      <figure class="icon-box" data-number="4">
+        <a class="link" href="/goal"
+          ><img src="images/goal-svgrepo-com (3).svg" alt=""
+        /></a>
+      </figure>
+      <figure class="icon-box" data-number="5">
+        <a class="link" href="/librus"
+          ><img src="images/link-svgrepo-com.svg" alt=""
+        /></a>
+      </figure>
+      <figure class="icon-box" data-number="6">
+        <a class="link" href="/notes"
+          ><img src="images/note-medical-svgrepo-com.svg" alt=""
+        /></a>
+      </figure>
+      <figure class="icon-box" data-number="7">
+        <a class="link" href="/translate"
+          ><img src="images/translate-02-svgrepo-com.svg" alt=""
+        /></a>
+      </figure>
+    </aside>
+
+    <main class="main--content--box">
+      <header class="header">
+        <figure class="logo--title--box">
+          <h1 class="title">Witaj, <span class="user--title">Adrian!</span></h1>
+        </figure>
+        <ul class="list">
+          <li class="list--element"><a class="link" href="/">Wyloguj</a></li>
+        </ul>
+      </header>
+
+       <section class="show--content">
+        <article class="part--box">
+        <article class="new--notifications">
+          <h2 class="box--title">Powiadomienia</h2>
+          <ul class="notifications--list">
+            <% for(let [name, value] of Object.entries(notifications)) {
+              %>
+            <li class="notifications--list--element"><%=name%>: <%=value%></li>
+            <%} %>
+          </ul>
+        </article>
+        <article class="new--notifications">
+          <h2 class="box--title">Infomacje o uczniu</h2>
+          <p class="user--data">Imię i nazwisko: <%= accInfo.student.nameSurname%></p>
+          <p class="user--data">Klasa: <%= accInfo.student.class%></p>
+          <p class="user--data">Numer w dzienniku: <%= accInfo.student.index%></p>
+          <p class="user--data">Wychowawca: <%= accInfo.student.educator%></p>
+          <p class="user--data">Login: <%= accInfo.account.login%></p>
+            
+          </ul>
+        </article>
+        </article>
+        <article class="part--box">
+        <article class="new--notifications">
+          <h2 class="box--title">Szczęśliwy numerek</h2>
+          <p class="lucky--number"><%=luckyNumber%></p>
+        </article>
+        <article class="new--notifications">
+          <h2 class="box--title">Nabliższe wydarzenia</h2>
+          <ul class="events--list">
+             <% let count = 0; for(let el of calendar){if(el.length > 0 && count < 6){ count++ %> <li class="events--list--element"><%= el[0].day %>: <%= el[0].title %></li> <% }} %>  
+          </ul>
+        
+        </article>
+        </article>
+          </section>
+      </main>
+  </body>
+</html>

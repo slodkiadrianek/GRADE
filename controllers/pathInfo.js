@@ -1,5 +1,6 @@
-let logData;
-
+const giveData = require("../model/librusApi");
+let allDataAboutUser;
+let UserData;
 exports.postDashboard = (req, res, next) => {
   res.sendFile("dashboard.html", { root: "views" });
   console.log(req.body);
@@ -22,5 +23,32 @@ exports.librusPage = (req, res, next) => {
 };
 
 exports.librusDashboard = (req, res, next) => {
-  res.sendFile("librusDashboard.html", { root: "views" });
+  const newStudent = new giveData(req.body.login, req.body.password);
+
+  newStudent
+    .showData(req.body.login, req.body.password)
+    .then((data) => {
+      allDataAboutUser = data; // Tutaj otrzymasz wszystkie dane
+    })
+    .then(() =>
+      allDataAboutUser.accountInfo.then((accInfo) => (userData = accInfo))
+    )
+    .then(() => {
+      // console.log(allDataAboutUser.grades);
+
+      res.render("librusDashboard", {
+        root: "views",
+        notifications: allDataAboutUser.notifications,
+        luckyNumber: allDataAboutUser.luckyNumber,
+        // grades: allDataAboutUser.grades,
+        // absences: allDataAboutUser.absences,
+        // info: allDataAboutUser.info,
+        calendar: allDataAboutUser.calendar,
+
+        accInfo: userData,
+        // announcements: allDataAboutUser.announcements,
+        pageTitle: "Librus Dashboard",
+      });
+      // console.log(allDataAboutUser.calendar);
+    });
 };

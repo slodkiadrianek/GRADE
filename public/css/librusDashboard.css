@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Madimi+One&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rubik+Mono+One&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --Font: "Montserrat";
+}
+.new--notifications {
+  background-color: #464646;
+  width: fit-content;
+  padding: 1vmax 2vmax;
+  font-family: var(--Font);
+  font-size: 1.4vmax;
+  border-radius: 0.4vmax;
+  color: white;
+}
+.events--list,
+.notifications--list {
+  list-style-type: none;
+}
+.notifications--list--element {
+  margin-bottom: 0.4vmax;
+}
+.box--title {
+  font-size: 1.5vmax;
+  color: #20de3f;
+}
+.lucky--number {
+  text-align: center;
+  font-size: 13.5vmax;
+}
+.user--data {
+  margin-bottom: 0.9vmax;
+  font-size: 1.4vmax;
+}
+.events--list--element {
+  font-size: var(--Font);
+  font-size: 1.4vmax;
+  margin-bottom: 1.3vmax;
+}
