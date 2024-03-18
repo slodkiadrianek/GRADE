@@ -5,12 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script defer src="js/librusUse.js"></script>
+    <link rel="stylesheet" href="css/logowanie.css">
+
   </head>
   <body>
-    <form action="/librusDashboard" method="post">
-      <input type="text" name="login" />
-      <input type="password" name="password" />
-      <button type="submit">Zaloguj się</button>
+    <main class="main--box">
+      <h1 class="title">Logowanie do librus</h1>
+    <form action="/librusDashboard" method="post" class="form--box">
+      <input type="text" name="login"  class="input--box"/>
+      <input type="password" name="password" class="input--box" />
+      <button type="submit" class="button--box"> Zaloguj się</button>
+      <p class="info--users">*Twoje dane logowania librus są jedynie wykorzystywane do
+zalogowania do konta, nie są w żaden sposób przechowywane.</p>
     </form>
+    </main>
   </body>
 </html>

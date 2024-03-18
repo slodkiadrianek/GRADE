@@ -1,6 +1,9 @@
 const giveData = require("../model/librusApi");
 let allDataAboutUser;
 let UserData;
+
+const daysInMotnh = require('../model/calendarM')
+
 exports.postDashboard = (req, res, next) => {
   res.sendFile("dashboard.html", { root: "views" });
   console.log(req.body);
@@ -52,3 +55,11 @@ exports.librusDashboard = (req, res, next) => {
       // console.log(allDataAboutUser.calendar);
     });
 };
+
+exports.todolistPage = (req,res,next) =>{
+  res.sendFile('dailytodolist.html', {root: 'views'})
+}
+exports.calendarPage = (req,res,next) =>{
+  res.render('calendar', {root: 'views',
+daysInMonth: daysInMotnh})
+}

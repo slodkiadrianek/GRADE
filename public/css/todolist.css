@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Madimi+One&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rubik+Mono+One&display=swap");
+:root {
+    --Font: "Montserrat";
+  }
+
+.todo--Content{
+    margin: 2vmax;
+    display: flex;
+    flex-direction: column;
+}
+.input--content{
+    display: flex ;
+    border: 0.2vmax solid white;
+    padding: 1vmax;
+    border-radius: 0.4vmax;
+    background-color: white;
+}
+.input--button{
+    padding: 0.5vmax;
+    border-radius: 50%;
+    background-color: white;
+    border: 0.2vmax #20de3f solid;
+}
+.input{
+    border: none;
+    margin-inline: 1vmax;
+    font-size: 1vmax;
+    font-family: var(--Font);
+    padding-left: 1vmax;
+    width: 90%;
+}
+.input--date{
+    background-color: white;
+    border: 0.2vmax #20de3f solid;
+    font-family: var(--Font);
+    margin-right: 1vmax;
+    padding-inline: 1.5vmax;
+}
+.input--select{
+    background-color: white;
+    border: 0.2vmax #20de3f solid;
+    font-family: var(--Font);
+}
+input:active{
+    border: 0.2vmax #20de3f solid;
+    font-family: var(--Font); 
+}
+.item{
+    display: flex;
+    background-color: #464646;
+    border-radius: 0.4vmax;
+    padding: 1vmax;
+    align-items: center;
+}
+.priority,
+.date,
+.task{
+    color: white;
+    font-family: var(--Font);
+    font-size: 1.7vmax;
+    margin-inline: 1vmax;
+
+}
+.task{
+    width: 100%;
+}
+.date{
+    width: 30%;   
+}
+.delete{
+    background-color: transparent;
+    border: none;
+    font-size: 1.7vmax;
+    color: white;
+}
+.check{
+   visibility: hidden;
+   width: 1.7vmax;
+   height:1.7vmax;
+}
+.check--button{
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius: 50%;
+    border: 0.3vmax solid #20de3f;
+    background-color: white;
+}
+.checked--button{
+    padding: 0.2vmax;
+
+    background-color: #20de3f;
+}
+.item--box{
+    background-color: #464646;
+    border-radius: 0.4vmax;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1vmax;
+}
+.header--item--box{
+    display: flex;
+    /* justify-content: space-between; */
+    font-weight: 400;
+    color:white;
+    margin-block: .4vmax;
+}
+.task--template{
+    margin-left: 28vmax;
+width: 41%;
+}
+.date--template{
+    margin-right: 12.8vmax;
+}

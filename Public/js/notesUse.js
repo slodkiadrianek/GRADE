@@ -3,6 +3,7 @@ const textArea = document.querySelector(".text--area");
 const listBox = document.querySelector(".list--box");
 const Add = document.querySelector(".Add");
 const chooseSheet = document.querySelector(".choose--sheet");
+const clear = document.querySelector('.clear')
 
 const sheets = {
   arkusz1: "",
@@ -63,3 +64,7 @@ const addContentToSheet = function (textAreaContent, WhichSheet) {
 Add.addEventListener("click", () => {
   addContentToSheet(textArea.value, chooseSheet.value);
 });
+
+clear.addEventListener('click', () =>{
+  textArea.value =''
+})

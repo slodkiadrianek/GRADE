@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/calendar.css">
+    <!-- <script defer src="js/calendarUse.js"></script> -->
+</head>
+<body>
+    <aside class="side--bar">
+        <figure class="icon-box" data-number="1">
+          <a href="/calendar">
+          <img
+            src="images/calendar-days-svgrepo-com (2).svg
+          "
+            alt=""
+          /></a>  
+        </figure>
+        <figure class="icon-box" data-number="2">
+          <a class="link" href="/changePassword"
+            ><img src="images/key-alt-svgrepo-com.svg" alt=""
+          /></a>
+        </figure>
+        <figure class="icon-box" data-number="3">
+          <a class="link" href="/todolist"
+            ><img src="images/check-lists-svgrepo-com.svg" alt=""
+          /></a>
+        </figure>
+        <figure class="icon-box" data-number="4">
+          <a class="link" href="/goal"
+            ><img src="images/goal-svgrepo-com (3).svg" alt=""
+          /></a>
+        </figure>
+        <figure class="icon-box" data-number="5">
+          <a class="link" href="/librus"
+            ><img src="images/link-svgrepo-com.svg" alt=""
+          /></a>
+        </figure>
+        <figure class="icon-box" data-number="6">
+          <a class="link" href="/notes"
+            ><img src="images/note-medical-svgrepo-com.svg" alt=""
+          /></a>
+        </figure>
+        <figure class="icon-box" data-number="7">
+          <a class="link" href="/translate"
+            ><img src="images/translate-02-svgrepo-com.svg" alt=""
+          /></a>
+        </figure>
+      </aside>
+      <main class="main--content--box">
+        <header class="header">
+          <figure class="logo--title--box">
+            <h1 class="title">Witaj, <span class="user--title">Adrian!</span></h1>
+          </figure>
+          <ul class="list">
+            <li class="list--element"><a class="link" href="/">Wyloguj</a></li>
+          </ul>
+        </header>
+
+        <section class="calendar">
+            <article class="info">
+              <select name="selectMonth" id="" class="select--month">
+                <option value="styczen">Styczeń</option>
+                <option value="luty">Luty</option>
+                <option value="marzec">Marzec</option>
+                <option value="kwiecen">Kwiecień</option>
+                <option value="maj">Maj</option>
+                <option value="czerwiec">Czerwiec</option>
+                <option value="lipiec">Lipiec</option>
+                <option value="sierpien">Sierpień</option>
+                <option value="wrzesien">Wrzesień</option>
+                <option value="pazdziernik">Październik</option>
+                <option value="listopad">Listopad</option>
+                <option value="grudzien">Grudzień</option>
+              </select>
+            </article>
+            <article class="month">
+                <% for(let op = 1; op < daysInMonth; op++) { %>
+                  <article class="day">
+                    <p class="number--day"><%=op%></p>
+                    
+                    <div class="events">
+                      <p>asdasdasdasd</p>
+                      <p>asdasdasdasd</p>
+                      <p>asdasdasdasd</p>
+                      <p>asdasdasdasd</p>
+                      <p>asdasdasdasd</p>
+                    </div>
+                    <button class="add-event">➕</button>
+                  </article>
+             <% } %>
+                
+            </article>
+        </section>
+      </main>  
+</body>
+</html>

@@ -28,6 +28,14 @@ const librusPage = require("./routes/librus");
 
 const librusDashboard = require("./routes/librusDashboard");
 
+const dailytodolist = require('./routes/todolist')
+
+const calendarPage  = require('./routes/calendar')
+
+app.use(calendarPage)
+
+app.use(dailytodolist)
+
 app.use(librusDashboard);
 
 app.use(landingPage);

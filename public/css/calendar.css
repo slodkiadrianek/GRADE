@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Madimi+One&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rubik+Mono+One&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --Font: "Montserrat";
+}
+
+.calendar{
+    display: flex;
+    flex-direction: column;
+}
+.info{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    padding-inline: 4vmax;
+}
+.month--text{
+    font-family: var(--Font);
+    font-size: 1.8vmax;
+    color: #20de3f;
+}
+.month{
+    margin-top: 2vmax;
+    margin-inline: 4vmax;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto  auto;
+    row-gap: 1vmax;
+    background-color: #464646;
+    padding: 1vmax;
+    place-items: center;
+    border-radius: 0.4vmax;
+}
+.day{
+    border: 0.3vmax solid white;
+    width: 95%;
+    border-radius: 0.4vmax;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: end;
+}.events{
+    /* margin-block: 2vmax; */
+    max-height: 5vmax;
+    background-color: transparent;
+    overflow-y: auto;
+    width: 97%;
+    color: white;
+
+}
+.add-event{
+    background-color: transparent;
+    padding: 0.2vmax;
+    border: none;
+    cursor: pointer;
+    margin-block: 0.5vmax;
+}
+.number--day{
+    font-size: 2vmax;
+    font-family: var(--Font);
+    color: #20de3f;
+    margin-block: 0.5vmax;
+}
+.select--month{
+    padding: 1vmax;
+    color: white;
+    font-family: var(--Font);
+    font-weight: 700;
+    background-color: #20de3f;
+    border: 0.2vmax solid white;
+    border-radius: 0.4vmax;
+}

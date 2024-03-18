@@ -81,3 +81,8 @@
         color: white;
         font-family: var(--Font);
     }
+    .info--users{
+        white-space: pre-wrap;
+        color: white;
+        font-family: var(--Font);
+    }
