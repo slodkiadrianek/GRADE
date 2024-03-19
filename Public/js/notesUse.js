@@ -19,7 +19,7 @@ listBox.addEventListener("click", (e) => {
     el.classList.remove("active--sheet");
   }
   const target = e.target;
-  if (!target.classList.contains("active--sheet")) {
+  if (!target.classList.contains("active--sheet") && target.classList.contains('list--element')) {
     target.classList.add("active--sheet");
     textArea.value = sheets[target.textContent];
     console.log(chooseSheet);
@@ -37,7 +37,9 @@ const listAllSheets = (sheets) => {
   listBox.textContent = ``;
   for (let key in sheets) {
     const html = `
-    <li class="list--element">${key}</li>`;
+    <div class="list--element--box">
+    <li class="list--element">${key}</li><button class="delete--button">🗑</button>
+    </div>`;
     listBox.insertAdjacentHTML("afterbegin", html);
   }
 };
@@ -67,4 +69,19 @@ Add.addEventListener("click", () => {
 
 clear.addEventListener('click', () =>{
   textArea.value =''
+})
+
+listBox.addEventListener('click', (e)=>{
+  const target = e.target
+  if(target.classList.contains('delete--button')){
+  textArea.value = ''
+    const sibling = target.previousElementSibling.textContent
+    delete sheets[sibling]
+    listAllSheets(sheets)
+  for(let [key, value] of Object.entries(chooseSheet.children)){
+  if(value.textContent === sibling)  {
+    value.remove()
+  }  
+  }    
+  }
 })

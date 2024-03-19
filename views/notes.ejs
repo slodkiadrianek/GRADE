@@ -1,0 +1,84 @@
+<%- include('includes/head.ejs') %>
+
+    <link rel="stylesheet" href="css/notes.css" />
+    <script defer src="js/notesUse.js"></script>
+  </head>
+  <body>
+    <aside class="side--bar">
+      <figure class="icon-box" data-number="1">
+        <img
+          src="images/calendar-days-svgrepo-com (2).svg
+        "
+          alt=""
+        />
+      </figure>
+      <figure class="icon-box" data-number="2">
+        <a class="link" href="/changePassword"
+          ><img src="images/key-alt-svgrepo-com.svg" alt=""
+        /></a>
+      </figure>
+      <figure class="icon-box" data-number="3">
+        <a class="link" href="/todolist"
+          ><img src="images/check-lists-svgrepo-com.svg" alt=""
+        /></a>
+      </figure>
+      <figure class="icon-box" data-number="4">
+        <a class="link" href="/goal"
+          ><img src="images/goal-svgrepo-com (3).svg" alt=""
+        /></a>
+      </figure>
+      <figure class="icon-box" data-number="5">
+        <a class="link" href="/librus"
+          ><img src="images/link-svgrepo-com.svg" alt=""
+        /></a>
+      </figure>
+      <figure class="icon-box" data-number="6">
+        <a class="link" href="/notes"
+          ><img src="images/note-medical-svgrepo-com.svg" alt=""
+        /></a>
+      </figure>
+      <figure class="icon-box" data-number="7">
+        <a class="link" href="/translate"
+          ><img src="images/translate-02-svgrepo-com.svg" alt=""
+        /></a>
+      </figure>
+    </aside>
+
+    <main class="main--content--box">
+      <header class="header">
+        <figure class="logo--title--box">
+          <h1 class="title">Witaj, <span class="user--title">Adrian!</span></h1>
+        </figure>
+        <ul class="list">
+          <li class="list--element"><a class="link" href="/">Wyloguj</a></li>
+        </ul>
+      </header>
+      <section class="show--content">
+        <article class="first--content">
+          <div class="which--box">
+            <h2 class="title--box">Arkusze</h2>
+            <ul class="list--box"></ul>
+          </div>
+          <div class="text--box">
+            <textarea
+              name="note"
+              id=""
+              cols="30"
+              rows="10"
+              class="text--area"
+              spellcheck="true"
+            ></textarea>
+          </div>
+        </article>
+        <article class="options">
+          <button class="clear">Wyczyść</button>
+          <button class="Add">Dodaj</button>
+          <select name="whichSheet" id="" class="choose--sheet">
+            <option value="arkusz1">arkusz1</option>
+            <option value="new" selected="false">Nowy arkusz</option>
+          </select>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

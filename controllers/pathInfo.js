@@ -5,8 +5,8 @@ let UserData;
 const daysInMotnh = require('../model/calendarM')
 
 exports.postDashboard = (req, res, next) => {
-  res.sendFile("dashboard.html", { root: "views" });
-  console.log(req.body);
+  res.render("dashboard", { root: "views",
+pageTitle: 'Dashboard' });
 };
 
 exports.landingPage = (req, res, next) => {
@@ -18,7 +18,7 @@ exports.loginPage = (req, res, next) => {
 };
 
 exports.notesPage = (req, res, next) => {
-  res.sendFile("notes.html", { root: "views" });
+  res.render("notes", { root: "views", pageTitle:'Notes' });
 };
 
 exports.librusPage = (req, res, next) => {
@@ -57,9 +57,15 @@ exports.librusDashboard = (req, res, next) => {
 };
 
 exports.todolistPage = (req,res,next) =>{
-  res.sendFile('dailytodolist.html', {root: 'views'})
+  res.render('dailytodolist', {root: 'views', pageTitle: 'To do list'})
 }
 exports.calendarPage = (req,res,next) =>{
   res.render('calendar', {root: 'views',
-daysInMonth: daysInMotnh})
+daysInMonth: daysInMotnh,
+pageTitle: 'Kalendarz'})
+}
+
+exports.goalPage = (req, res, next) =>{
+  res.render('goal', {root:'views', 
+pageTitle: 'Cele'})
 }

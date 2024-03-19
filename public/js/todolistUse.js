@@ -12,7 +12,7 @@ const showTasks = function(){
     itemBox.textContent = ``
     const html = `
     <article class="header--item--box">
-    <p class="task--template">zadanie</p> <p class="date--template">data</p> <p>priorytet</p>
+    <p class="task--template">zadanie</p> <p class="date--template">data</p> <p class="priority--template">priorytet</p>
 
   </article>
     `

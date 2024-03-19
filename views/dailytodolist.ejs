@@ -1,0 +1,31 @@
+<%- include('includes/head.ejs') %>
+
+    <link rel="stylesheet" href="css/todolist.css">
+    <script defer src="js/todolistUse.js"></script>
+</head>
+<body>
+  <%-include('includes/body.ejs') %>
+        <section class="todo--Content">
+            <article class="input--content">
+                <button class="input--button">➕</button>
+                <input type="text" placeholder="Wpisz zadanie" class="input">
+                <input type="date" class="input--date">
+                    <select class="input--select" name="priority" id="" required>
+                        <option value="wysoki">Wysoki</option>
+                        <option value="sredni">Średni</option>
+                        <option value="niski">Niski</option>
+                    </select>
+                  </article>
+            <article class="item--box">
+              <article class="header--item--box">
+                <p class="task--template">zadanie</p> <p class="date--template">data</p> <p class="priority--template">priorytet</p>
+
+              </article>
+            
+            
+          </article>
+        </section>
+        </main>
+  
+</body>
+</html>

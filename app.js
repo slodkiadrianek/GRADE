@@ -32,6 +32,10 @@ const dailytodolist = require('./routes/todolist')
 
 const calendarPage  = require('./routes/calendar')
 
+const goalPage  = require('./routes/goal')
+
+app.use(goalPage)
+
 app.use(calendarPage)
 
 app.use(dailytodolist)

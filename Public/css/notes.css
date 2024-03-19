@@ -54,15 +54,25 @@
 }
 .title--box {
   font-family: var(--Font);
-  font-size: 1.5vmax;
+  font-size: 1.7vmax;
   text-align: right;
   align-self: center;
   color: #20de3f;
 }
 .list--element {
   color: white;
-  font-size: 1vmax;
+  font-size: 1.5vmax;
   cursor: pointer;
+  font-family: var(--Font);
+}
+.list--element--box{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.delete--button{
+background-color: transparent;
+border: none;
 }
 .text--area {
   width: 100%;
@@ -70,7 +80,7 @@
   background-color: #464646;
   border: none;
   font-family: var(--Font);
-  font-size: 1.2vmax;
+  font-size: 1.5vmax;
   resize: none;
 }
 .text--area:focus {

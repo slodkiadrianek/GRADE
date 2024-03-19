@@ -1,0 +1,115 @@
+<%- include('includes/head.ejs') %>
+    <script defer src="js/dashboardUse.js"></script>
+  </head>
+
+  <body>
+    <%-include('includes/body.ejs') %>
+
+      <section class="show--content">
+        <article class="part--box">
+          <article class="weather--box">
+            <h1 class="box--title">Zobaczmy jaka pogoda za oknem</h1>
+            <p class="common--text">
+              Temperatura: <span class="temperature"></span>
+            </p>
+            <p class="common--text">
+              Temperatura odczuwalna: <span class="feelsTemperature"></span>
+            </p>
+            <p class="common--text">
+              Wilgotność: <span class="humidity"></span>
+            </p>
+            <p class="common--text">Warunki: <span class="condition"></span></p>
+            <p class="common--text">
+              Ciśnienie: <span class="pressure"></span>
+            </p>
+          </article>
+          <article class="calendar--box">
+            <article class="title--box">
+              <h1 class="box--title">
+                Nadchodzące wydarzenie w najbliższym czasie
+              </h1>
+              <a href="/todolist">
+                <img src="images/arrow-right-to-bracket-svgrepo-com.svg" alt=""
+              /></a>
+            </article>
+
+            <ul class="list--box-1">
+              <li class="list--element">
+                <div class="left--side">
+                  <div class="ball"></div>
+                  <p>Spotkanie z kimś</p>
+                </div>
+                <div class="right--side">
+                  <p>Data: <span>21.04.2024</span></p>
+                </div>
+              </li>
+              <li class="list--element">
+                <div class="left--side">
+                  <div class="ball"></div>
+                  <p>Spotkanie z kimś</p>
+                </div>
+                <div class="right--side">
+                  <p>Data: <span>21.04.2024</span></p>
+                </div>
+              </li>
+              <li class="list--element">
+                <div class="left--side">
+                  <div class="ball"></div>
+                  <p>Spotkanie z kimś</p>
+                </div>
+                <div class="right--side">
+                  <p>Data: <span>21.04.2024</span></p>
+                </div>
+              </li>
+              <li class="list--element">
+                <div class="left--side">
+                  <div class="ball"></div>
+                  <p>Spotkanie z kimś</p>
+                </div>
+                <div class="right--side">
+                  <p>Data: <span>21.04.2024</span></p>
+                </div>
+              </li>
+            </ul>
+          </article>
+        </article>
+        <article class="part--box">
+          <article class="goal--box">
+            <h1 class="box--title">Lista celi do końca roku</h1>
+            <ul class="list--box-1">
+              <li class="list--element">xyz</li>
+              <li class="list--element">xyz</li>
+              <li class="list--element">xyz</li>
+              <li class="list--element">xyz</li>
+              <li class="list--element">xyz</li>
+            </ul>
+          </article>
+
+          <article class="todolist--box">
+            <h1 class="box--title">Lista zadań na dziś</h1>
+            <ul class="list--box-1">
+              <li class="list--element">xyz</li>
+              <li class="list--element">xyz</li>
+              <li class="list--element">xyz</li>
+              <li class="list--element">xyz</li>
+            </ul>
+          </article>
+          <article class="lastNote--box">
+            <article class="title--box">
+              <h1 class="box--title">Twoje notatki</h1>
+              <a href="/todolist">
+                <img src="images/arrow-right-to-bracket-svgrepo-com.svg" alt=""
+              /></a>
+            </article>
+            <ul class="list--box-1">
+              <li class="list--element">Arkusz 1</li>
+              <li class="list--element">Arkusz 2</li>
+              <li class="list--element">Arkusz 3</li>
+              <li class="list--element">Arkusz 4</li>
+            </ul>
+          </article>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

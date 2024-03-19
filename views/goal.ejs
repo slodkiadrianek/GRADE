@@ -1,0 +1,30 @@
+<%- include('includes/head.ejs') %>
+<link rel="stylesheet" href="css/todolist.css">
+<link rel="stylesheet" href="css/goal.css">
+<script type="module" defer src="js/goalsUse.js"></script>
+</head>
+<body>
+    <%- include('includes/body.ejs') %>
+    <section class="todo--Content">
+        <article class="input--content">
+            <button class="input--button">➕</button>
+            <input type="text" placeholder="Wpisz zadanie" class="input">
+            <input type="date" class="input--date">
+              </article>
+        <article class="item--box">
+          <article class="header--item--box">
+            <p class="task--template">Zadanie</p> <p class="date--template">Termin</p> <p class="priority--template">Postęp w %</p>
+        </article>
+
+            <article class="item">
+                <p class="task">Jakieś zadasadddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddnie</p>
+                <p class="date">21.05.2024</p>
+                <input class="priority" type="number" min="1" max="100" >
+            </article>
+        
+        
+      </article>
+    </section>
+</main>
+</body>
+</html>
