@@ -1,12 +1,17 @@
 const giveData = require("../model/librusApi");
+const taskList = require("../model/todolistM");
 let allDataAboutUser;
 let UserData;
 
-const daysInMotnh = require('../model/calendarM')
+const goals = require("../model/goalsM");
+
+const calendarMoves = require("../model/calendarM");
+
+const newCalendar = new calendarMoves();
+newCalendar.getActualDate();
 
 exports.postDashboard = (req, res, next) => {
-  res.render("dashboard", { root: "views",
-pageTitle: 'Dashboard' });
+  res.render("dashboard", { root: "views", pageTitle: "Dashboard" });
 };
 
 exports.landingPage = (req, res, next) => {
@@ -18,7 +23,7 @@ exports.loginPage = (req, res, next) => {
 };
 
 exports.notesPage = (req, res, next) => {
-  res.render("notes", { root: "views", pageTitle:'Notes' });
+  res.render("notes", { root: "views", pageTitle: "Notes" });
 };
 
 exports.librusPage = (req, res, next) => {
@@ -56,16 +61,65 @@ exports.librusDashboard = (req, res, next) => {
     });
 };
 
-exports.todolistPage = (req,res,next) =>{
-  res.render('dailytodolist', {root: 'views', pageTitle: 'To do list'})
-}
-exports.calendarPage = (req,res,next) =>{
-  res.render('calendar', {root: 'views',
-daysInMonth: daysInMotnh,
-pageTitle: 'Kalendarz'})
-}
+exports.todolistPage = (req, res, next) => {
+  res.render("dailytodolist", {
+    root: "views",
+    pageTitle: "To do list",
+    List: taskList,
+  });
+};
+exports.calendarPage = (req, res, next) => {
+  res.render("calendar", {
+    root: "views",
+    daysInMonth: newCalendar.daysInMonth,
+    month: newCalendar.whichMonth(),
+    pageTitle: "Kalendarz",
+  });
+};
 
-exports.goalPage = (req, res, next) =>{
-  res.render('goal', {root:'views', 
-pageTitle: 'Cele'})
-}
+exports.goalPage = (req, res, next) => {
+  res.render("goal", { root: "views", pageTitle: "Cele", goalsList: goals });
+};
+
+exports.taskPage = (req, res, next) => {
+  taskList.push({
+    task: req.body.task,
+    date: req.body.date,
+    priority: req.body.priority,
+  });
+  res.redirect("/todolist");
+};
+exports.deletePage = (req, res, next) => {
+  taskList.find((el) =>
+    el.task === req.body.taskElement
+      ? taskList.pop(el)
+      : console.log(el.task, req.body.taskElement)
+  );
+  res.redirect("/todolist");
+};
+
+exports.newGoal = (req, res, next) => {
+  goals.push({
+    goal: req.body.goal,
+    goalDate: req.body.goalDate,
+    progress: "0",
+  });
+  console.log(goals);
+  res.redirect("/goal");
+};
+
+exports.editGoal = (req, res, next) => {
+  goals.find((el) =>
+    el.goal === req.body.taskElement ? (el.progress = req.body.progress) : ""
+  );
+  res.redirect("/goal");
+};
+exports.previous = (req, res, next) => {
+  newCalendar.previousMonth();
+  res.redirect("/calendar");
+};
+
+exports.next = (req, res, next) => {
+  newCalendar.nextMonth();
+  res.redirect("/calendar");
+};

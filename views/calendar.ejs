@@ -6,20 +6,16 @@
   <%- include('includes/body.ejs') %>
 
         <section class="calendar">
+          
             <article class="info">
-              <select name="selectMonth" id="" class="select--month">
-                <option value="styczen">Styczeń</option>
-                <option value="luty">Luty</option>
-                <option value="marzec">Marzec</option>
-                <option value="kwiecen">Kwiecień</option>
-                <option value="maj">Maj</option>
-                <option value="czerwiec">Czerwiec</option>
-                <option value="lipiec">Lipiec</option>
-                <option value="sierpien">Sierpień</option>
-                <option value="wrzesien">Wrzesień</option>
-                <option value="pazdziernik">Październik</option>
-                <option value="listopad">Listopad</option>
-                <option value="grudzien">Grudzień</option>
+              <form action="/admin/previous" method="post">
+                <button class="move--button" type="submit"><</button>
+              </form>
+              <h2 class="name--month"><%= month%></h2>
+
+              <form action="/admin/next" method="post">
+                <button class="move--button" type="submit">></button>
+              </form>
               </select>
             </article>
             <article class="month">

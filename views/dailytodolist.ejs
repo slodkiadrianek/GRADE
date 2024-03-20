@@ -6,21 +6,39 @@
 <body>
   <%-include('includes/body.ejs') %>
         <section class="todo--Content">
+
+          <form action="/admin/newTask" method="POST">
             <article class="input--content">
-                <button class="input--button">➕</button>
-                <input type="text" placeholder="Wpisz zadanie" class="input">
-                <input type="date" class="input--date">
-                    <select class="input--select" name="priority" id="" required>
-                        <option value="wysoki">Wysoki</option>
-                        <option value="sredni">Średni</option>
-                        <option value="niski">Niski</option>
-                    </select>
+                
+                <button type="submit" class="input--button">➕</button>
+              <input type="text" name="task" placeholder="Wpisz zadanie" class="input" required>
+              <input type="date" name="date" class="input--date" required>
+              <select class="input--select" name="priority" id="" required>
+                <option value="wysoki">Wysoki</option>
+                <option value="sredni">Średni</option>
+                <option value="niski">Niski</option>
+              </select>
+                  </form>
                   </article>
             <article class="item--box">
               <article class="header--item--box">
-                <p class="task--template">zadanie</p> <p class="date--template">data</p> <p class="priority--template">priorytet</p>
+                <p class="task--template">Zadanie</p>                 <p class="date--template">Data</p>
+                <p class="priority--template">Priorytet</p>
 
               </article>
+              <% if(List.length > 0) { %>
+                <% for(let el of List){  %>
+                  <form action="/admin/deletetask" method="post">
+                <article class="item">
+                  <button class="check--button checked--button"><input type="radio" class="check"></button>
+                  <input name="taskElement" class="task" value="<%= el.task %>"  readonly></input>
+                <input name="date--element"  value="<%= el.date %>" readonly class="date"></input>
+                 <input  name="priority--element"  value="<%= el.priority %>" readonly class="priority"></input>
+                <button type="submit" class="delete">🗑</button>
+              </article>
+            </form>
+              <% } %>
+           <% }%>
             
             
           </article>

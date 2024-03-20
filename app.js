@@ -16,11 +16,9 @@ const getError = require("./controllers/error");
 
 app.use(express.static(path.join(__dirname, "public")));
 
-const landingPage = require("./routes/LandingPage");
+const landingPage = require("./routes/basicMovements");
 
 const dashboards = require("./routes/dashboard");
-
-const loginPage = require("./routes/logowanie");
 
 const notesPage = require("./routes/notes");
 
@@ -28,25 +26,23 @@ const librusPage = require("./routes/librus");
 
 const librusDashboard = require("./routes/librusDashboard");
 
-const dailytodolist = require('./routes/todolist')
+const dailytodolist = require("./routes/todolist");
 
-const calendarPage  = require('./routes/calendar')
+const calendarPage = require("./routes/calendar");
 
-const goalPage  = require('./routes/goal')
+const goalPage = require("./routes/goal");
 
-app.use(goalPage)
+app.use(goalPage);
 
-app.use(calendarPage)
+app.use(calendarPage);
 
-app.use(dailytodolist)
+app.use(dailytodolist);
 
 app.use(librusDashboard);
 
 app.use(landingPage);
 
 app.use(dashboards.router);
-
-app.use(loginPage);
 
 app.use(notesPage);
 

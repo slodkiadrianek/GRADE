@@ -1,7 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Madimi+One&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rubik+Mono+One&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --Font: "Montserrat";
+}
 .priority {
   background-color: transparent;
   border: none;
 }
 .priority:focus {
   outline: none;
+}
+.option--element{
+  background-color: #20de3f;
+  padding-right: 2vmax;
+  text-align: center;
+}
+.task{
+  margin-left: 4vmax;
 }

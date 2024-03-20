@@ -1,9 +1,13 @@
-const express = require('express')
+const express = require("express");
 
-const router = express.Router()
+const router = express.Router();
 
 const pathInfo = require("../controllers/pathInfo");
 
 router.use("/goal", pathInfo.goalPage);
 
-module.exports = router
+router.post("/admin/editGoal", pathInfo.editGoal);
+
+router.post("/admin/newGoal", pathInfo.newGoal);
+
+module.exports = router;

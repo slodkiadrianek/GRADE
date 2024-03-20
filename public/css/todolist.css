@@ -62,6 +62,8 @@ input:active {
   font-family: var(--Font);
   font-size: 1.4vmax;
   /* margin-inline: 1vmax; */
+  background-color: transparent;
+  border: none;
 }
 .task {
   width: 60%;
