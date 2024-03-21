@@ -5,26 +5,45 @@ module.exports = class MonthCalc{
         this.actualMonth
         this.daysInMonth
         this.longMonths = [0,2,4,6,7,9,11]
+        this.actualDate
     }
     getActualDate(){
-    const actualDate  = new Date()
-    this.actualMonth = actualDate.getMonth()
+     this.actualDate  = new Date()
+    this.actualMonth = this.actualDate.getMonth()
+    this.actualYear = this.actualDate.getFullYear()
+    
     this.longMonths.includes(this.actualMonth) ? this.daysInMonth = 32 : this.daysInMonth = 31
     }
     previousMonth(){
-        if(this.actualMonth >0){
-            this.actualMonth -= 1
-            this.longMonths.includes(this.actualMonth) ? this.daysInMonth = 32 : this.daysInMonth = 31
-        }else{
+        console.log(this.actualMonth);
+        
+        
+        if(this.actualMonth === 0 && this.actualYear > '2024'){
+            this.actualYear -= 1
+            this.actualMonth = 11
+        }else if(this.actualMonth === 0 && +this.actualYear === +'2024'){
+            console.log('s');
+            
             this.actualMonth = 0
         }
+        else{
+            console.log('d');
+            
+            this.actualMonth -= 1
+            this.longMonths.includes(this.actualMonth) ? this.daysInMonth = 32 : this.daysInMonth = 31
+        }
+        // if(this.actualMonth > 0 ){
+        //     this.actualMonth -= 1
+        //     this.longMonths.includes(this.actualMonth) ? this.daysInMonth = 32 : this.daysInMonth = 31
+        // }
     }
     nextMonth(){
         if(this.actualMonth < 11){
             this.actualMonth += 1
             this.longMonths.includes(this.actualMonth) ? this.daysInMonth = 32 : this.daysInMonth = 31
         }else{
-            this.actualMonth = 11
+            this.actualMonth = 0
+            this.actualYear +=1
         }
     }
      whichMonth(){

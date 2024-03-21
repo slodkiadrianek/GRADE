@@ -60,9 +60,17 @@
         <article class="first--content">
           <div class="which--box">
             <h2 class="title--box">Arkusze</h2>
-            <ul class="list--box"></ul>
+            <ul class="list--box">
+              <% for(let [name, value] of Object.entries(sheetsList)) {%>
+                <form action="/admin/">
+                  <li><%=name%></li>
+                </form>
+                
+                <%}%>
+            </ul>
           </div>
           <div class="text--box">
+            <form action="/admin/newText" method="post">
             <textarea
               name="note"
               id=""
@@ -74,13 +82,16 @@
           </div>
         </article>
         <article class="options">
-          <button class="clear">Wyczyść</button>
-          <button class="Add">Dodaj</button>
-          <select name="whichSheet" id="" class="choose--sheet">
-            <option value="arkusz1">arkusz1</option>
-            <option value="new" selected="false">Nowy arkusz</option>
-          </select>
+          <button type="reset" class="clear">Wyczyść</button>
+          <button type="submit" class="Add">Dodaj</button>
+
+        </form>
+        <form action="/admin/newSheet" method="post">
+        <input name="sheetName" type="text">
+          <button type="submit">Nowy arkusz</button>
+        </form>
         </article>
+
       </section>
     </main>
   </body>

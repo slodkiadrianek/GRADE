@@ -2,11 +2,10 @@ const giveData = require("../model/librusApi");
 const taskList = require("../model/todolistM");
 let allDataAboutUser;
 let UserData;
-
 const goals = require("../model/goalsM");
-
 const calendarMoves = require("../model/calendarM");
-
+const eventList = require('../model/newEventM')
+const sheetsList = require('../model/notesM')
 const newCalendar = new calendarMoves();
 newCalendar.getActualDate();
 
@@ -23,7 +22,7 @@ exports.loginPage = (req, res, next) => {
 };
 
 exports.notesPage = (req, res, next) => {
-  res.render("notes", { root: "views", pageTitle: "Notes" });
+  res.render("notes", { root: "views", pageTitle: "Notes", sheetsList: sheetsList });
 };
 
 exports.librusPage = (req, res, next) => {
@@ -72,7 +71,10 @@ exports.calendarPage = (req, res, next) => {
   res.render("calendar", {
     root: "views",
     daysInMonth: newCalendar.daysInMonth,
-    month: newCalendar.whichMonth(),
+    actualMonth: newCalendar.whichMonth(),
+    year: newCalendar.actualYear,
+    eventList: eventList,
+    month: newCalendar.actualMonth,
     pageTitle: "Kalendarz",
   });
 };
@@ -123,3 +125,25 @@ exports.next = (req, res, next) => {
   newCalendar.nextMonth();
   res.redirect("/calendar");
 };
+
+exports.eventPage = (req, res , next) =>{
+  eventList.push({event: req.body.event, eventDate: req.body.eventDate})
+  res.redirect('/calendar')
+}
+
+exports.deleteEvent = (req, res, next) =>{
+  eventList.find(el => el.event === req.body.eventText ? eventList.pop(el) : '')
+  res.redirect('/calendar')
+}
+
+// exports.newText = (req, res, next) =>{
+  
+//   res.redirect('/notes')
+// }
+
+exports.newSheet = (req, res, next) =>{
+  sheetsList[req.body.sheetName] = ''
+  console.log(sheetsList);
+  
+  res.redirect('/notes')
+}

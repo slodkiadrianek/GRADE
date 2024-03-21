@@ -1,6 +1,6 @@
 <%- include('includes/head.ejs') %>
     <link rel="stylesheet" href="css/calendar.css">
-    <!-- <script defer src="js/calendarUse.js"></script> -->
+    <script defer src="js/calendarUse.js"></script>
 </head>
 <body>
   <%- include('includes/body.ejs') %>
@@ -8,10 +8,11 @@
         <section class="calendar">
           
             <article class="info">
+              <h2 class="name--month"><%= year%></h2>
               <form action="/admin/previous" method="post">
                 <button class="move--button" type="submit"><</button>
               </form>
-              <h2 class="name--month"><%= month%></h2>
+              <h2 class="name--month"><%= actualMonth%></h2>
 
               <form action="/admin/next" method="post">
                 <button class="move--button" type="submit">></button>
@@ -19,23 +20,36 @@
               </select>
             </article>
             <article class="month">
-                <% for(let op = 1; op < daysInMonth; op++) { %>
+                <% for(let op = 1; op < daysInMonth; op++) {  const x = `${year}-${month < 9 ? `0${month+1}` : `${month+1}`}-${op}`%>
+                  
                   <article class="day">
                     <p class="number--day"><%=op%></p>
-                    
+                    <% for(let event of eventList){  %>
+                      <% if(event.eventDate == x ) { %>
+                        <form action="/admin/deleteEvent" method="post">
+                      <input name="eventText" type="text" value="<%=event.event%>" readonly class="event--text"></p> <button type="submit">🗑</button>
+                    </form>
+                      <%}%>
+                      <%}%>
                     <div class="events">
-                      <p>asdasdasdasd</p>
-                      <p>asdasdasdasd</p>
-                      <p>asdasdasdasd</p>
-                      <p>asdasdasdasd</p>
-                      <p>asdasdasdasd</p>
                     </div>
-                    <button class="add-event">➕</button>
                   </article>
+               
              <% } %>
                 
             </article>
+            
         </section>
+        <form action="/admin/event" method="POST">
+          <article class="new--event">
+            <article class="event--box">
+            <h2 class="title--box">Dodaj wydarzenie</h2>
+            <input type="text" class="input--event" name="event">
+            <input type="date" class="input--event" name="eventDate" min="2024-01-01" >
+            <button type="submit" class="input--event">Dodaj wydarzenie</button>
+          </article>
+          </article>
+        </form>
       </main>  
 </body>
 </html>
