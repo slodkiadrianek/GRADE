@@ -8,4 +8,6 @@ const pathInfo = require("../controllers/pathInfo");
 
 router.get("/translate", pathInfo.translatePage);
 
+router.post("/admin/translate", pathInfo.translate);
+
 module.exports = router;

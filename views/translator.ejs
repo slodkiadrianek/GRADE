@@ -2,5 +2,24 @@
 </head>
 <body>
   <%- include('includes/body.ejs') %>
+  <section>
+    <form action="/admin/translate" method="post">
+          <input  type="text" name="textToTranslate" >
+          <select name="fromLanguage" id="">
+            <option value="EN-GB">Angielski</option>
+            <option value="PL">Polski</option>
+            <option  value="IT">Włoski</option>
+            <option  value="DE">Niemiecki</option>
+        </select>
+        <select name="toLanguage" id="">
+            <option value="EN-GB">Angielski</option>
+            <option  value="PL">Polski</option>
+            <option  value="IT">Włoski</option>
+            <option  value="DE">Niemiecki</option>
+        </select>
+        <button type="submit">Tłumacz!</button>
+    </form>
+    <p style="color: white;"><%= translatedText%></p>
+  </section>
 </main>
 </body>

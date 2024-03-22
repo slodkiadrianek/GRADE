@@ -163,9 +163,17 @@ exports.newSheet = (req, res, next) => {
 };
 
 let outputetText;
+
+exports.translate = (req, res, next) => {
+  translate(req.body.textToTranslate, req.body.toLanguage)
+    .then((res) => (outputetText = res.text))
+    .then(() => res.redirect("/translate"));
+};
 exports.translatePage = (req, res, next) => {
-  res.render("translator", { root: "views", pageTitle: "Translator" });
-  translate("Jak się czujesz", "en-GB")
-    .then((res) => (outputetText = res))
-    .then(() => console.log(outputetText));
+  console.log(outputetText);
+  res.render("translator", {
+    root: "views",
+    pageTitle: "Translator",
+    translatedText: outputetText,
+  });
 };
