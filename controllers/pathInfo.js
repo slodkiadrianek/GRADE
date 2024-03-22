@@ -4,10 +4,13 @@ let allDataAboutUser;
 let UserData;
 const goals = require("../model/goalsM");
 const calendarMoves = require("../model/calendarM");
-const eventList = require('../model/newEventM')
-const sheetsList = require('../model/notesM')
+const eventList = require("../model/newEventM");
+const sheetsList = require("../model/notesM");
+const { render } = require("ejs");
 const newCalendar = new calendarMoves();
 newCalendar.getActualDate();
+
+const translate = require("../model/translateAPI");
 
 exports.postDashboard = (req, res, next) => {
   res.render("dashboard", { root: "views", pageTitle: "Dashboard" });
@@ -22,7 +25,12 @@ exports.loginPage = (req, res, next) => {
 };
 
 exports.notesPage = (req, res, next) => {
-  res.render("notes", { root: "views", pageTitle: "Notes", sheetsList: sheetsList });
+  res.render("notes", {
+    root: "views",
+    pageTitle: "Notes",
+    sheetsList: sheetsList,
+    actualSheet: sheetsList[seeSheet],
+  });
 };
 
 exports.librusPage = (req, res, next) => {
@@ -92,11 +100,11 @@ exports.taskPage = (req, res, next) => {
   res.redirect("/todolist");
 };
 exports.deletePage = (req, res, next) => {
-  taskList.find((el) =>
-    el.task === req.body.taskElement
-      ? taskList.pop(el)
-      : console.log(el.task, req.body.taskElement)
-  );
+  let itemToRemove;
+  for (let [index, value] of Object.entries(taskList)) {
+    value.task === req.body.taskElement ? (itemToRemove = index) : "";
+  }
+  taskList.splice(itemToRemove, 1);
   res.redirect("/todolist");
 };
 
@@ -126,24 +134,38 @@ exports.next = (req, res, next) => {
   res.redirect("/calendar");
 };
 
-exports.eventPage = (req, res , next) =>{
-  eventList.push({event: req.body.event, eventDate: req.body.eventDate})
-  res.redirect('/calendar')
-}
+exports.eventPage = (req, res, next) => {
+  eventList.push({ event: req.body.event, eventDate: req.body.eventDate });
+  res.redirect("/calendar");
+};
 
-exports.deleteEvent = (req, res, next) =>{
-  eventList.find(el => el.event === req.body.eventText ? eventList.pop(el) : '')
-  res.redirect('/calendar')
-}
+exports.deleteEvent = (req, res, next) => {
+  const itemToRemove = eventList.indexOf(req.body.eventText);
+  eventList.splice(itemToRemove, 1);
+  res.redirect("/calendar");
+};
 
-// exports.newText = (req, res, next) =>{
-  
-//   res.redirect('/notes')
-// }
+exports.addToSheet = (req, res, next) => {
+  sheetsList[req.body.sheets] += req.body.note;
+  // console.log(req.body);
+  res.redirect("/notes");
+};
+let seeSheet;
+exports.showSheet = (req, res, next) => {
+  seeSheet = req.body.sheets;
+  res.redirect("/notes");
+};
 
-exports.newSheet = (req, res, next) =>{
-  sheetsList[req.body.sheetName] = ''
-  console.log(sheetsList);
-  
-  res.redirect('/notes')
-}
+exports.newSheet = (req, res, next) => {
+  const newSheet = req.body.sheetName;
+  sheetsList[newSheet] = "";
+  res.redirect("/notes");
+};
+
+let outputetText;
+exports.translatePage = (req, res, next) => {
+  res.render("translator", { root: "views", pageTitle: "Translator" });
+  translate("Jak się czujesz", "en-GB")
+    .then((res) => (outputetText = res))
+    .then(() => console.log(outputetText));
+};

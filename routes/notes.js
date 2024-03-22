@@ -9,6 +9,8 @@ router.use("/notes", pathInfo.notesPage);
 
 // router.post('/admin/newText', pathInfo.newText)
 
-router.post('/admin/newSheet' , pathInfo.newSheet)
+router.post("/admin/addToSheet", pathInfo.addToSheet);
+router.post("/admin/showSheet", pathInfo.showSheet);
+router.post("/admin/newSheet", pathInfo.newSheet);
 
 module.exports = router;

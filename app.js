@@ -32,6 +32,10 @@ const calendarPage = require("./routes/calendar");
 
 const goalPage = require("./routes/goal");
 
+const translatePage = require("./routes/translator");
+
+app.use(translatePage);
+
 app.use(goalPage);
 
 app.use(calendarPage);

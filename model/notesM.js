@@ -1,3 +1,5 @@
-const sheetsList = {}
+const sheetsList = {
+  arkusz1: "",
+};
 
-module.exports = sheetsList
+module.exports = sheetsList;

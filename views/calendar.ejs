@@ -10,17 +10,17 @@
             <article class="info">
               <h2 class="name--month"><%= year%></h2>
               <form action="/admin/previous" method="post">
-                <button class="move--button" type="submit"><</button>
+                <button class="move--button " type="submit"><span class="arrow"><</span></button>
               </form>
               <h2 class="name--month"><%= actualMonth%></h2>
 
               <form action="/admin/next" method="post">
-                <button class="move--button" type="submit">></button>
+                <button class="move--button" type="submit"><span class="arrow">></span></button>
               </form>
               </select>
             </article>
             <article class="month">
-                <% for(let op = 1; op < daysInMonth; op++) {  const x = `${year}-${month < 9 ? `0${month+1}` : `${month+1}`}-${op}`%>
+                <% for(let op = 1; op < daysInMonth; op++) {  const x = `${year}-${month < 9 ? `0${month+1}` : `${month+1}`}-${op < 9 ? `0${op}` : `${op}`}`%>
                   
                   <article class="day">
                     <p class="number--day"><%=op%></p>
