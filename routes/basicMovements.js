@@ -1,13 +1,17 @@
 "use strict";
 
-const express = require("express");
+import  express  from "express";
+
 
 const router = express.Router();
 
-const pathInfo = require("../controllers/pathInfo");
+import {landingPage, loginPage, forgottenPasswordPage} from '../controllers/pathInfo.js'
 
-router.get("/", pathInfo.landingPage);
 
-router.get("/logowanie", pathInfo.loginPage);
+router.get("/", landingPage);
 
-module.exports = router;
+router.get("/logowanie", loginPage);
+
+router.get('/forgottenPassword', forgottenPasswordPage)
+
+export default router

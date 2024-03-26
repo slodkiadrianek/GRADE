@@ -1,13 +1,16 @@
 "use strict";
 
-const express = require("express");
+import  express  from "express";
+
 
 const router = express.Router();
 
-const pathInfo = require("../controllers/pathInfo");
+import {translatePage, translate} from '../controllers/pathInfo.js'
 
-router.get("/translate", pathInfo.translatePage);
 
-router.post("/admin/translate", pathInfo.translate);
 
-module.exports = router;
+router.get("/translate", translatePage);
+
+router.post("/admin/translate", translate);
+
+export default router

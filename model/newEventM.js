@@ -1,3 +1,2 @@
 const eventList  = []
-
-module.exports = eventList
+export default eventList

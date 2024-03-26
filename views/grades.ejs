@@ -1,0 +1,47 @@
+<%- include('includes/head.ejs') %>
+<link rel="stylesheet" href="css/grades.css">
+</head>
+<body>
+    <%- include('includes/body.ejs') %>
+<section
+class="grades--box">
+<% for(let el of grades) { %>
+<article class="subject--box">
+    <h2 class="subject--name"><%=el.name%></h2>
+    <div class="semester--box">
+        <h3 class="text--semestr">Semestr 1</h3> 
+        <% for(let grade of el.semester[0].grades) { console.log(grade)%>
+        <div class="grade--box">
+            <p><%=grade.value%></p>
+        </div>
+        <%}%>
+    </div>
+    <div class="semester--box">
+        <h3 class="text--semestr">Śródroczna</h3> 
+        <% for(let grade of el.semester[1].grades) { console.log(grade)%>
+            <div class="grade--box">
+                <p><%=grade.value%></p>
+            </div>
+            <%}%>
+    </div>
+    <div class="semester--box">
+        <h3 class="text--semestr">Semestr 2</h3> 
+        <% for(let grade of el.semester[2].grades) { console.log(grade)%>
+            <div class="grade--box">
+                <p><%=grade.value%></p>
+            </div>
+            <%}%>
+    </div>
+    <div class="semester--box">
+        <h3 class="text--semestr">Roczna</h3> 
+        <% for(let grade of el.semester[3].grades) { console.log(grade)%>
+            <div class="grade--box">
+                <p><%=grade.value%></p>
+            </div>
+            <%}%>
+    </div>
+</article>
+<%}%>
+</section>
+</body>
+</html>

@@ -1,25 +1,33 @@
 <%- include('includes/head.ejs') %>
+<link rel="stylesheet" href="css/translator.css">
 </head>
 <body>
   <%- include('includes/body.ejs') %>
-  <section>
+  <section class="main--content">
     <form action="/admin/translate" method="post">
-          <input  type="text" name="textToTranslate" >
-          <select name="fromLanguage" id="">
+      <article class="select--box">
+         <select name="fromLanguage" id="" class="select--element left">
             <option value="EN-GB">Angielski</option>
             <option value="PL">Polski</option>
             <option  value="IT">Włoski</option>
             <option  value="DE">Niemiecki</option>
         </select>
-        <select name="toLanguage" id="">
+        <select name="toLanguage" id="" class="select--element right">
             <option value="EN-GB">Angielski</option>
             <option  value="PL">Polski</option>
             <option  value="IT">Włoski</option>
             <option  value="DE">Niemiecki</option>
         </select>
-        <button type="submit">Tłumacz!</button>
+      </article>
+         <article class="output--box">
+          <textarea  class="input--field"  name="textToTranslate"  rows="10"></textarea>
+          <p  class="input--field"  style="color: white;"><%= translatedText%> <%= translatedErrorText !== 'undefined' ? translatedErrorText : 'x' %></p>
+         </article>
+
+        <button class="select--element" type="submit">Tłumacz</button>
     </form>
-    <p style="color: white;"><%= translatedText%></p>
+    
+    
   </section>
 </main>
 </body>

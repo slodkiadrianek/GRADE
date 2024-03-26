@@ -1,0 +1,34 @@
+:root {
+    --Font: "Montserrat";
+    --Dark: #292929;
+    --light:#464646;
+    --green:#20de3f;
+    --white:#ffffff;
+  }
+
+.content--box{
+    background-color: var(--light);
+    margin: 1vmax;
+    padding: 1vmax;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.5vmax;
+}
+.annoucment--box{
+    border:  0.3vmax solid var(--white);
+    border-radius: 0.4vmax;
+    padding: 1vmax;
+}
+.title--ann{
+    text-align: center;
+    color: var(--green);
+}
+.about{
+    text-align: center;
+    color: var(--white);
+}
+.content{
+    font-family: var(--Font);
+    color: var(--white);
+    white-space: pre-wrap;
+}

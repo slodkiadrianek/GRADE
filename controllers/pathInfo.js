@@ -1,31 +1,30 @@
-const giveData = require("../model/librusApi");
-const taskList = require("../model/todolistM");
+import giveData from "../model/librusApi.js"
+import taskList from "../model/todolistM.js"
 let allDataAboutUser;
 let UserData;
-const goals = require("../model/goalsM");
-const calendarMoves = require("../model/calendarM");
-const eventList = require("../model/newEventM");
-const sheetsList = require("../model/notesM");
-const { render } = require("ejs");
+import goals from '../model/goalsM.js'
+import calendarMoves from '../model/calendarM.js'
+import eventList from "../model/newEventM.js";
+import sheetsList from "../model/notesM.js";
 const newCalendar = new calendarMoves();
 newCalendar.getActualDate();
 
-const translate = require("../model/translateAPI");
+import translatet from '../model/translateAPI.js'
 
-exports.postDashboard = (req, res, next) => {
+const  postDashboard = (req, res, next) => {
   res.render("dashboard", { root: "views", pageTitle: "Dashboard" });
 };
 
-exports.landingPage = (req, res, next) => {
+const  landingPage = (req, res, next) => {
   res.sendFile("landingPage.html", { root: "views" });
 };
 
-exports.loginPage = (req, res, next) => {
+const loginPage = (req, res, next) => {
   res.sendFile("logowanie.html", { root: "views" });
 };
 
-exports.notesPage = (req, res, next) => {
-  res.render("notes", {
+const notesPage = (req, res, next) => {
+  res.render("annoucments.ejs", {
     root: "views",
     pageTitle: "Notes",
     sheetsList: sheetsList,
@@ -33,11 +32,15 @@ exports.notesPage = (req, res, next) => {
   });
 };
 
-exports.librusPage = (req, res, next) => {
-  res.sendFile("librus.html", { root: "views" });
+let librusError
+const librusPage = (req, res, next) => {
+  res.render("librus", { root: "views",        textError: librusError
+});
 };
 
-exports.librusDashboard = (req, res, next) => {
+const librusDashboard = (req, res, next) => {
+  console.log('co tam');
+  
   const newStudent = new giveData(req.body.login, req.body.password);
 
   newStudent
@@ -46,7 +49,7 @@ exports.librusDashboard = (req, res, next) => {
       allDataAboutUser = data; // Tutaj otrzymasz wszystkie dane
     })
     .then(() =>
-      allDataAboutUser.accountInfo.then((accInfo) => (userData = accInfo))
+      allDataAboutUser.accountInfo.then((accInfo) => (UserData = accInfo))
     )
     .then(() => {
       // console.log(allDataAboutUser.grades);
@@ -55,27 +58,26 @@ exports.librusDashboard = (req, res, next) => {
         root: "views",
         notifications: allDataAboutUser.notifications,
         luckyNumber: allDataAboutUser.luckyNumber,
-        // grades: allDataAboutUser.grades,
         // absences: allDataAboutUser.absences,
         // info: allDataAboutUser.info,
         calendar: allDataAboutUser.calendar,
 
-        accInfo: userData,
+        accInfo: UserData,
         // announcements: allDataAboutUser.announcements,
         pageTitle: "Librus Dashboard",
       });
       // console.log(allDataAboutUser.calendar);
-    });
+    })
 };
 
-exports.todolistPage = (req, res, next) => {
+const todolistPage = (req, res, next) => {
   res.render("dailytodolist", {
     root: "views",
     pageTitle: "To do list",
     List: taskList,
   });
 };
-exports.calendarPage = (req, res, next) => {
+const calendarPage = (req, res, next) => {
   res.render("calendar", {
     root: "views",
     daysInMonth: newCalendar.daysInMonth,
@@ -87,11 +89,11 @@ exports.calendarPage = (req, res, next) => {
   });
 };
 
-exports.goalPage = (req, res, next) => {
+const goalPage = (req, res, next) => {
   res.render("goal", { root: "views", pageTitle: "Cele", goalsList: goals });
 };
 
-exports.taskPage = (req, res, next) => {
+const taskPage = (req, res, next) => {
   taskList.push({
     task: req.body.task,
     date: req.body.date,
@@ -99,7 +101,7 @@ exports.taskPage = (req, res, next) => {
   });
   res.redirect("/todolist");
 };
-exports.deletePage = (req, res, next) => {
+const deletePage = (req, res, next) => {
   let itemToRemove;
   for (let [index, value] of Object.entries(taskList)) {
     value.task === req.body.taskElement ? (itemToRemove = index) : "";
@@ -107,8 +109,7 @@ exports.deletePage = (req, res, next) => {
   taskList.splice(itemToRemove, 1);
   res.redirect("/todolist");
 };
-
-exports.newGoal = (req, res, next) => {
+const newGoal = (req, res, next) => {
   goals.push({
     goal: req.body.goal,
     goalDate: req.body.goalDate,
@@ -118,62 +119,89 @@ exports.newGoal = (req, res, next) => {
   res.redirect("/goal");
 };
 
-exports.editGoal = (req, res, next) => {
+const editGoal = (req, res, next) => {
   goals.find((el) =>
     el.goal === req.body.taskElement ? (el.progress = req.body.progress) : ""
   );
   res.redirect("/goal");
 };
-exports.previous = (req, res, next) => {
+const previous = (req, res, next) => {
   newCalendar.previousMonth();
   res.redirect("/calendar");
 };
 
-exports.next = (req, res, next) => {
+const next = (req, res, next) => {
   newCalendar.nextMonth();
   res.redirect("/calendar");
 };
 
-exports.eventPage = (req, res, next) => {
+const eventPage = (req, res, next) => {
   eventList.push({ event: req.body.event, eventDate: req.body.eventDate });
   res.redirect("/calendar");
 };
 
-exports.deleteEvent = (req, res, next) => {
+const deleteEvent = (req, res, next) => {
   const itemToRemove = eventList.indexOf(req.body.eventText);
   eventList.splice(itemToRemove, 1);
   res.redirect("/calendar");
 };
 
-exports.addToSheet = (req, res, next) => {
+const addToSheet = (req, res, next) => {
   sheetsList[req.body.sheets] += req.body.note;
   // console.log(req.body);
   res.redirect("/notes");
 };
 let seeSheet;
-exports.showSheet = (req, res, next) => {
+const showSheet = (req, res, next) => {
   seeSheet = req.body.sheets;
   res.redirect("/notes");
 };
 
-exports.newSheet = (req, res, next) => {
+const newSheet = (req, res, next) => {
   const newSheet = req.body.sheetName;
   sheetsList[newSheet] = "";
   res.redirect("/notes");
 };
 
 let outputetText;
-
-exports.translate = (req, res, next) => {
-  translate(req.body.textToTranslate, req.body.toLanguage)
+let errorText;
+const translate = (req, res, next) => {
+  translatet(req.body.textToTranslate, req.body.toLanguage)
     .then((res) => (outputetText = res.text))
-    .then(() => res.redirect("/translate"));
+    .then(() => res.redirect("/translate")).catch((e) =>{errorText = 'Wystąpił problem, sprawdź połączenie  z internetem', res.redirect('/translate')}
+    )
 };
-exports.translatePage = (req, res, next) => {
-  console.log(outputetText);
+
+const translatePage = (req, res, next) => {
   res.render("translator", {
     root: "views",
     pageTitle: "Translator",
     translatedText: outputetText,
+    translatedErrorText: errorText
   });
 };
+const forgottenPasswordPage = (req,res, next) =>{
+  res.render('forgottenPassword', {root: 'views', pageTitle:'Zapomniałem Hasło'} )
+}
+
+const gradePage  = (req, res, next) =>{
+  res.render('grades', {root: 'views', pageTitle: 'Oceny', grades: allDataAboutUser.grades})
+  
+}
+
+const calendarLibrusPage  = (req,res, next) =>{
+  res.render('calendarLibrus', {root:'views', pageTitle:'Terminarz',daysInMonth: newCalendar.daysInMonth,
+  actualMonth: newCalendar.whichMonth(),
+  year: newCalendar.actualYear,
+  month: newCalendar.actualMonth,
+  eventList : allDataAboutUser.announcements })
+}
+const annoucmentsPage = (req,res,next) =>{
+  res.render('annoucments', {root:'views', annoucment: allDataAboutUser.announcements, pageTitle:'Ogłoszenia'})
+}
+
+
+export {annoucmentsPage, calendarLibrusPage,gradePage,  forgottenPasswordPage,translate ,translatePage, newSheet ,showSheet, addToSheet, 
+eventPage, next, previous, editGoal, newGoal, deleteEvent, taskPage,
+goalPage, calendarPage, todolistPage, librusDashboard, librusPage, 
+notesPage, loginPage, landingPage, postDashboard, deletePage}

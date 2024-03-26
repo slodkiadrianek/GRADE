@@ -82,7 +82,9 @@
         font-family: var(--Font);
     }
     .info--users{
+        /* text-wrap:wrap; */
         white-space: pre-wrap;
         color: white;
         font-family: var(--Font);
+        text-align: center;
     }

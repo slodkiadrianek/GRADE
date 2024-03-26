@@ -1,19 +1,22 @@
 "use strict";
 
-const express = require("express");
+import  express  from "express";
+
 
 const router = express.Router();
 
-const pathInfo = require("../controllers/pathInfo");
+import {calendarPage, previous, next,  eventPage, deleteEvent} from '../controllers/pathInfo.js'
 
-router.get("/calendar", pathInfo.calendarPage);
 
-router.post("/admin/previous", pathInfo.previous);
 
-router.post("/admin/next", pathInfo.next);
+router.get("/calendar", calendarPage);
 
-router.post('/admin/event', pathInfo.eventPage)
+router.post("/admin/previous", previous);
 
-router.post('/admin/deleteEvent', pathInfo.deleteEvent)
+router.post("/admin/next", next);
 
-module.exports = router;
+router.post('/admin/event', eventPage)
+
+router.post('/admin/deleteEvent', deleteEvent)
+
+export default router

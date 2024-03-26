@@ -1,2 +1,2 @@
 const goals = []
-module.exports = goals
+export default  goals

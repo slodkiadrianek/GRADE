@@ -1,15 +1,17 @@
 "use strict";
+import  express  from "express";
 
-const express = require("express");
 
 const router = express.Router();
 
-const pathInfo = require("../controllers/pathInfo");
+import {todolistPage, taskPage, deletePage} from '../controllers/pathInfo.js'
 
-router.get("/todolist", pathInfo.todolistPage);
 
-router.post("/admin/newtask", pathInfo.taskPage);
 
-router.post("/admin/deletetask", pathInfo.deletePage);
+router.get("/todolist", todolistPage);
 
-module.exports = router;
+router.post("/admin/newtask", taskPage);
+
+router.post("/admin/deletetask", deletePage);
+
+export default router

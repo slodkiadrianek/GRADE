@@ -1,6 +1,6 @@
 'use strict'
 
-module.exports = class MonthCalc{
+export default  class MonthCalc{
     constructor(){
         this.actualMonth
         this.daysInMonth

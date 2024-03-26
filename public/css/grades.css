@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Madimi+One&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rubik+Mono+One&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --Font: "Montserrat";
+  --Dark: #292929;
+  --light:#464646;
+  --green:#20de3f;
+  --white:#ffffff;
+}
+.grades--box{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--light);
+    column-gap: 1vmax;
+    margin: 1vmax;
+    padding: 1vmax;
+    row-gap: 1vmax;
+}
+.semester--box{
+    display: flex;
+    align-items: center;
+    column-gap: 1vmax;
+}
+.grade--box{
+    background-color: var(--green);
+    padding: 0.2vmax 0.6vmax;
+}
+.subject--box{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1vmax;
+    padding: 1vmax;
+    border:  0.4vmax solid var(--white);
+    border-radius: 0.4vmax ;
+}
+.text--semestr{
+  color: var(--white);
+}
+.subject--name{
+  color: var(--green);
+  text-transform: capitalize;
+}

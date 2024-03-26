@@ -1,16 +1,18 @@
 "use strict";
-const express = require("express");
+import  express  from "express";
+
+
+
+import {notesPage,addToSheet, showSheet, newSheet} from '../controllers/pathInfo.js'
 
 const router = express.Router();
 
-const pathInfo = require("../controllers/pathInfo");
 
-router.use("/notes", pathInfo.notesPage);
+router.use("/notes", notesPage);
 
-// router.post('/admin/newText', pathInfo.newText)
 
-router.post("/admin/addToSheet", pathInfo.addToSheet);
-router.post("/admin/showSheet", pathInfo.showSheet);
-router.post("/admin/newSheet", pathInfo.newSheet);
+router.post("/admin/addToSheet", addToSheet);
+router.post("/admin/showSheet", showSheet);
+router.post("/admin/newSheet", newSheet);
 
-module.exports = router;
+export default router

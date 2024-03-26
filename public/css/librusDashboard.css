@@ -4,18 +4,22 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 :root {
   --Font: "Montserrat";
+  --Dark: #292929;
+  --light:#464646;
+  --green:#20de3f;
+  --white:#ffffff;
 }
+
 .new--notifications {
-  background-color: #464646;
+  background-color: var(--light);
   width: fit-content;
   padding: 1vmax 2vmax;
   font-family: var(--Font);
   font-size: 1.4vmax;
   border-radius: 0.4vmax;
-  color: white;
+  color: var(--white);
 }
 .events--list,
 .notifications--list {
@@ -26,7 +30,7 @@
 }
 .box--title {
   font-size: 1.4vmax;
-  color: #20de3f;
+  color: var(--green);
   text-align: center;
 }
 .lucky--number {

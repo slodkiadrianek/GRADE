@@ -1,9 +1,12 @@
-const express = require("express");
+import  express  from "express";
 
 const router = express.Router();
 
-const pathInfo = require("../controllers/pathInfo");
 
-router.use("/librus", pathInfo.librusPage);
+import {librusPage} from '../controllers/pathInfo.js'
 
-module.exports = router;
+
+
+router.use("/librus", librusPage);
+
+export default router

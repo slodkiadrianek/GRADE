@@ -1,7 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Madimi+One&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rubik+Mono+One&display=swap");
+
 :root {
   --Font: "Montserrat";
+  --Dark:#292929;
+  --light:#464646;
+  --green:#20de3f;
+  --white:#ffffff;
 }
+
 .show--content {
   width: calc(100% - 2vmax);
   height: 100%;
@@ -12,14 +18,14 @@
 
 .text--box {
   border-radius: 0.4vmax;
-  border: 0.2vmax solid white;
+  border: 0.2vmax solid var(--white);
 }
 .first--content {
   display: flex;
   height: 80%;
 }
 .text--box {
-  background-color: #464646;
+  background-color: var(--light);
   width: 100%;
 }
 .options {
@@ -33,9 +39,9 @@
 .Add {
   padding: 1vmax 2vmax;
   font-family: var(--Font);
-  background-color: #20de3f;
+  background-color: var(--green);
   font-size: 1.2vmax;
-  border: 0.2vmax solid #ffff;
+  border: 0.2vmax solid var(--white);
   border-radius: 0.4vmax;
   cursor: pointer;
 }
@@ -44,10 +50,10 @@
   font-size: 1.7vmax;
   text-align: right;
   align-self: center;
-  color: #20de3f;
+  color: var(--green);
 }
 .list--element {
-  color: white;
+  color: var(--white);
   font-size: 1.5vmax;
   cursor: pointer;
   font-family: var(--Font);
@@ -64,16 +70,16 @@
 .text--area {
   width: 100%;
   height: 100%;
-  background-color: #464646;
+  background-color: var(--light);
   border: none;
   font-family: var(--Font);
   font-size: 1.5vmax;
   resize: none;
-  color: white;
+  color: var(--white);
 }
 .text--area:focus {
   outline: none;
 }
 .active--sheet {
-  color: #20de3f;
+  color: var(--green);
 }

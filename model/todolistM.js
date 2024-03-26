@@ -1,2 +1,2 @@
 const tasksListel = [];
-module.exports = tasksListel;
+export default tasksListel;

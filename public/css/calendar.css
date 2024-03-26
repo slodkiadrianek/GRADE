@@ -7,6 +7,10 @@
 
 :root {
   --Font: "Montserrat";
+  --Dark: #292929;
+  --light:#464646;
+  --green:#20de3f;
+  --white:#ffffff;
 }
 
 .calendar {
@@ -23,7 +27,7 @@
 .month--text {
   font-family: var(--Font);
   font-size: 1.8vmax;
-  color: #20de3f;
+  color: var(--green);
 }
 .month {
   margin-top: 2vmax;
@@ -31,13 +35,13 @@
   display: grid;
   grid-template-columns: auto auto auto auto auto auto auto;
   row-gap: 1vmax;
-  background-color: #464646;
+  background-color: var(--light);
   padding: 1vmax;
   place-items: center;
   border-radius: 0.4vmax;
 }
 .day {
-  border: 0.3vmax solid white;
+  border: 0.3vmax solid var(--white);
   width: 11vmax;
   border-radius: 0.4vmax;
   display: flex;
@@ -53,7 +57,7 @@
   background-color: transparent;
   overflow-y: auto;
   width: 97%;
-  color: white;
+  color: var(--white);
 }
 .add-event {
   background-color: transparent;
@@ -65,20 +69,20 @@
 .number--day {
   font-size: 2vmax;
   font-family: var(--Font);
-  color: #20de3f;
+  color: var(--green);
   margin-block: 0.5vmax;
 }
 .select--month {
   padding: 1vmax;
-  color: white;
+  color: var(--white);
   font-family: var(--Font);
   font-weight: 700;
-  background-color: #20de3f;
-  border: 0.2vmax solid white;
+  background-color: var(--green);
+  border: 0.2vmax solid var(--white);
   border-radius: 0.4vmax;
 }
 .name--month {
-  color: #20de3f;
+  color: var(--green);
   font-size: 1.5vmax;
   font-family: var(--font);
   margin-inline: 1vmax;
@@ -100,29 +104,43 @@
 .event--box {
   display: flex;
   flex-direction: column;
-  width: 0.1vmax solid white;
+  width: 0.1vmax solid var(--white);
   row-gap: 1vmax;
 }
 .title--box {
-  color: #20de3f;
+  color: var(--green);
   font-size: 1.8vmax;
+  text-align: center;
+  justify-self: center;
 }
 .input--event {
   padding: 1vmax;
-  border: #20de3f 0.2vmax solid;
+  border: var(--green) 0.2vmax solid;
   border-radius: 0.4vmax;
   font-family: var(--Font);
   font-weight: 500;
+  font-size: 1vmax;
 }
 .event--text {
-  color: white;
+  color: var(--white);
   font-family: var(--Font);
   font-size: 1.5vmax;
-  width: 20vh;
   background-color: transparent;
   border: none;
+  width:9vmax ;
 }
 .arrow {
-  color: white;
+  color: var(--white);
   cursor: pointer;
+}
+.form--box{
+  width: fit-content;
+  display: flex;
+  align-items: center;
+}
+.delete--button{
+  background-color: transparent;
+  padding: 0.2vmax;
+  color: var(--white);
+  border: none;
 }

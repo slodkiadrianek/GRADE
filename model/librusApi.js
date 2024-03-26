@@ -1,6 +1,6 @@
-const Librus = require("librus-api");
+import Librus from "librus-api";
 
-module.exports = class SendData {
+export default class SendData {
   constructor(login, password) {
     this.login = login;
     this.password = password;
@@ -11,7 +11,9 @@ module.exports = class SendData {
   async showData(login, password) {
     try {
       const client = new Librus();
-      await client.authorize(login, password);
+       await client.authorize(login, password);
+      // console.log(`Błąd ${x}`);
+      
       // Send message to User 648158
       const results = {};
 
@@ -19,6 +21,8 @@ module.exports = class SendData {
       results.info = client.inbox.listInbox(5);
       // List announcements
       results.announcements = await client.inbox.listAnnouncements();
+      // console.log(results.announcements);
+      
 
       // Get all absences
       results.absences = await client.absence.getAbsences();
@@ -40,8 +44,7 @@ module.exports = class SendData {
 
       return results;
     } catch (error) {
-      console.error("Error:", error);
-      throw error; // Rzuć błąd, aby można go było obsłużyć na wyższym poziomie
+      console.error("Wystąpił problem");
     }
   }
 };

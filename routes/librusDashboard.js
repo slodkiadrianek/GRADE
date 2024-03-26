@@ -1,11 +1,17 @@
 "use strict";
 
-const express = require("express");
+import  express  from "express";
 
 const router = express.Router();
 
-const pathInfo = require("../controllers/pathInfo");
 
-router.post("/librusDashboard", pathInfo.librusDashboard);
+import {librusDashboard, gradePage, calendarLibrusPage, annoucmentsPage} from '../controllers/pathInfo.js'
 
-module.exports = router;
+
+
+router.post("/librusDashboard" , librusDashboard);
+router.get('/grades', gradePage)
+router.get('/annoucments',annoucmentsPage )
+router.get('/calendarLibrus', calendarLibrusPage)
+
+export default router

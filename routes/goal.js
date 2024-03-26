@@ -1,13 +1,14 @@
-const express = require("express");
+import  express  from "express";
 
 const router = express.Router();
 
-const pathInfo = require("../controllers/pathInfo");
 
-router.use("/goal", pathInfo.goalPage);
+import {goalPage, editGoal, newGoal} from '../controllers/pathInfo.js'
 
-router.post("/admin/editGoal", pathInfo.editGoal);
+router.use("/goal", goalPage);
 
-router.post("/admin/newGoal", pathInfo.newGoal);
+router.post("/admin/editGoal", editGoal);
 
-module.exports = router;
+router.post("/admin/newGoal", newGoal);
+
+export default router

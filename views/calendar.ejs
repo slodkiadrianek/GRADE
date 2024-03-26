@@ -26,8 +26,8 @@
                     <p class="number--day"><%=op%></p>
                     <% for(let event of eventList){  %>
                       <% if(event.eventDate == x ) { %>
-                        <form action="/admin/deleteEvent" method="post">
-                      <input name="eventText" type="text" value="<%=event.event%>" readonly class="event--text"></p> <button type="submit">🗑</button>
+                        <form action="/admin/deleteEvent" method="post" class="form--box">
+                      <input name="eventText" type="text" value="<%=event.event%>" readonly class="event--text"></input> <button type="submit" class="delete--button">🗑</button>
                     </form>
                       <%}%>
                       <%}%>

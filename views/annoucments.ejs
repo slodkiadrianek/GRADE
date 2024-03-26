@@ -1,0 +1,17 @@
+<%- include('includes/head.ejs') %>
+<link rel="stylesheet" href="css/annoucments.css">
+</head>
+<body>
+    <%- include('includes/body.ejs') %>
+<section class="content--box">
+    <% for(let el of annoucment) {  %>
+    <article class="annoucment--box">
+        <h2 class="title--ann"><%=el.title%></h2>
+        <h3 class="about"><%=el.user%></h3>
+        <h3 class="about"><%=el.date%></h3>
+        <p class="content"><%=el.content%></p>
+    </article>
+   <%}%>
+</section>
+</body>
+</html>

@@ -7,7 +7,12 @@
 
 :root {
   --Font: "Montserrat";
+  --Dark: #292929;
+  --light:#464646;
+  --green:#20de3f;
+  --white:#ffffff;
 }
+
 .priority {
   background-color: transparent;
   border: none;
@@ -16,7 +21,7 @@
   outline: none;
 }
 .option--element{
-  background-color: #20de3f;
+  background-color: var(--green);
   padding-right: 2vmax;
   text-align: center;
 }

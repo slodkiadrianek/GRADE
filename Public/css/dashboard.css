@@ -7,10 +7,14 @@
 
 :root {
   --Font: "Montserrat";
+  --Dark: #292929;
+  --light:#464646;
+  --green:#20de3f;
+  --white:#ffffff;
 }
 body {
   min-height: 100vh;
-  background-color: #292929;
+  background-color: var(--Dark);
   display: flex;
   /* flex-direction: column; */
   font-family: var(--Font);
@@ -21,7 +25,7 @@ body {
   align-items: center;
   justify-content: space-between;
   /* background-color: rgb(34, 34, 34); */
-  color: whitesmoke;
+  color: var(--white);
   padding: 2vmax 2vmax;
   padding-top: 1vmax;
   font-family: var(--Font);
@@ -43,12 +47,12 @@ body {
 }
 .section--title,
 .title {
-  color: white;
+  color: var(--white);
   font-size: 3vmax;
   font-family: var(--Font);
 }
 .link {
-  color: white;
+  color: var(--white);
   text-decoration: none;
   font-size: 1.2vmax;
 }
@@ -59,14 +63,14 @@ body {
 .temperature,
 .user--title,
 .link:hover {
-  color: #20de3f;
+  color: var(--green);
 }
 
 .side--bar {
   display: flex;
   flex-direction: column;
   row-gap: 1vmax;
-  background-color: #444444;
+  background-color: var(--light);
   padding: 1vmax;
   padding-top: 1.8vmax;
 }
@@ -80,15 +84,15 @@ body {
   cursor: pointer;
 }
 .icon-box:hover {
-  background-color: #20de3f;
+  background-color: var(--green);
 }
 .icon--box--bigger {
   width: 20vmax;
-  color: white;
+  color: var(--white);
   font-size: 2vmax;
 }
 .link {
-  color: white;
+  color: var(--white);
   text-decoration: none;
   font-size: 1.8vmax;
 }
@@ -112,8 +116,8 @@ body {
 .todolist--box,
 .weather--box {
   font-family: var(--Font);
-  color: white;
-  background-color: #464646;
+  color: var(--white);
+  background-color: var(--light);
   padding: 2vmax 1.7vmax;
   padding-right: 1vmax;
   border-radius: 0.4vmax;
@@ -160,7 +164,7 @@ body {
 .list--element {
   font-size: 1.3vmax;
   text-decoration: none;
-  color: white;
+  color: var(--white);
   display: flex;
   align-items: center;
   column-gap: 1vmax;
@@ -174,7 +178,7 @@ body {
 }
 .ball{
   height: 0.9vmax;
-  background-color: white;
+  background-color: var(--white);
   border-radius: 50%;
   width: 0.9vmax;
 }
@@ -190,11 +194,11 @@ body {
   cursor:auto;
 }
 .done{
-  color: #20de3f;
+  color: var(--green);
   text-decoration: line-through;
 }
 .done--ball{
-  background-color: #20de3f;
+  background-color: var(--green);
 }
 
 /* width

@@ -1,16 +1,17 @@
 "use strict";
 
-const express = require("express");
+import  express  from "express";
 
 const router = express.Router();
 
-const getError = require("../controllers/error");
-const pathInfo = require("../controllers/pathInfo");
 
-router.post("/dashboard", pathInfo.postDashboard);
+import {postDashboard} from '../controllers/pathInfo.js'
 
-router.get("/dashboard", getError.get404);
 
-module.exports = {
-  router: router,
-};
+import getError from "../controllers/error.js"
+
+router.post("/dashboard", postDashboard);
+
+router.get("/dashboard", getError);
+
+export default router
