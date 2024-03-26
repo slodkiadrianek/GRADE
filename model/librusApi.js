@@ -11,9 +11,9 @@ export default class SendData {
   async showData(login, password) {
     try {
       const client = new Librus();
-       await client.authorize(login, password);
+      await client.authorize(login, password);
       // console.log(`Błąd ${x}`);
-      
+
       // Send message to User 648158
       const results = {};
 
@@ -22,7 +22,6 @@ export default class SendData {
       // List announcements
       results.announcements = await client.inbox.listAnnouncements();
       // console.log(results.announcements);
-      
 
       // Get all absences
       results.absences = await client.absence.getAbsences();
@@ -47,4 +46,4 @@ export default class SendData {
       console.error("Wystąpił problem");
     }
   }
-};
+}

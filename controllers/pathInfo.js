@@ -1,21 +1,24 @@
-import giveData from "../model/librusApi.js"
-import taskList from "../model/todolistM.js"
+import giveData from "../model/librusApi.js";
+import taskList from "../model/todolistM.js";
 let allDataAboutUser;
 let UserData;
-import goals from '../model/goalsM.js'
-import calendarMoves from '../model/calendarM.js'
+import goals from "../model/goalsM.js";
+import calendarMoves from "../model/calendarM.js";
 import eventList from "../model/newEventM.js";
 import sheetsList from "../model/notesM.js";
+import getDate from "../model/calendarLibrusM.js";
 const newCalendar = new calendarMoves();
 newCalendar.getActualDate();
+const getActualDate = new getDate();
+getActualDate.getActualDate();
 
-import translatet from '../model/translateAPI.js'
+import translatet from "../model/translateAPI.js";
 
-const  postDashboard = (req, res, next) => {
+const postDashboard = (req, res, next) => {
   res.render("dashboard", { root: "views", pageTitle: "Dashboard" });
 };
 
-const  landingPage = (req, res, next) => {
+const landingPage = (req, res, next) => {
   res.sendFile("landingPage.html", { root: "views" });
 };
 
@@ -32,15 +35,14 @@ const notesPage = (req, res, next) => {
   });
 };
 
-let librusError
+let librusError;
 const librusPage = (req, res, next) => {
-  res.render("librus", { root: "views",        textError: librusError
-});
+  res.render("librus", { root: "views", textError: librusError });
 };
 
 const librusDashboard = (req, res, next) => {
-  console.log('co tam');
-  
+  console.log("co tam");
+
   const newStudent = new giveData(req.body.login, req.body.password);
 
   newStudent
@@ -67,7 +69,7 @@ const librusDashboard = (req, res, next) => {
         pageTitle: "Librus Dashboard",
       });
       // console.log(allDataAboutUser.calendar);
-    })
+    });
 };
 
 const todolistPage = (req, res, next) => {
@@ -168,8 +170,11 @@ let errorText;
 const translate = (req, res, next) => {
   translatet(req.body.textToTranslate, req.body.toLanguage)
     .then((res) => (outputetText = res.text))
-    .then(() => res.redirect("/translate")).catch((e) =>{errorText = 'Wystąpił problem, sprawdź połączenie  z internetem', res.redirect('/translate')}
-    )
+    .then(() => res.redirect("/translate"))
+    .catch((e) => {
+      (errorText = "Wystąpił problem, sprawdź połączenie  z internetem"),
+        res.redirect("/translate");
+    });
 };
 
 const translatePage = (req, res, next) => {
@@ -177,31 +182,68 @@ const translatePage = (req, res, next) => {
     root: "views",
     pageTitle: "Translator",
     translatedText: outputetText,
-    translatedErrorText: errorText
+    translatedErrorText: errorText,
   });
 };
-const forgottenPasswordPage = (req,res, next) =>{
-  res.render('forgottenPassword', {root: 'views', pageTitle:'Zapomniałem Hasło'} )
-}
+const forgottenPasswordPage = (req, res, next) => {
+  res.render("forgottenPassword", {
+    root: "views",
+    pageTitle: "Zapomniałem Hasło",
+  });
+};
 
-const gradePage  = (req, res, next) =>{
-  res.render('grades', {root: 'views', pageTitle: 'Oceny', grades: allDataAboutUser.grades})
-  
-}
+const gradePage = (req, res, next) => {
+  res.render("grades", {
+    root: "views",
+    pageTitle: "Oceny",
+    grades: allDataAboutUser.grades,
+  });
+};
 
-const calendarLibrusPage  = (req,res, next) =>{
-  res.render('calendarLibrus', {root:'views', pageTitle:'Terminarz',daysInMonth: newCalendar.daysInMonth,
-  actualMonth: newCalendar.whichMonth(),
-  year: newCalendar.actualYear,
-  month: newCalendar.actualMonth,
-  eventList : allDataAboutUser.announcements })
-}
-const annoucmentsPage = (req,res,next) =>{
-  res.render('annoucments', {root:'views', annoucment: allDataAboutUser.announcements, pageTitle:'Ogłoszenia'})
-}
+const calendarLibrusPage = (req, res, next) => {
+  res.render("calendarLibrus", {
+    root: "views",
+    pageTitle: "Terminarz",
+    year: getActualDate.actualYear,
+    month: getActualDate.actualMonth,
+    daysInMonth: getActualDate.daysInMonth,
+    day: getActualDate.actualDay,
+    eventList: allDataAboutUser.calendar,
+  });
+};
+const annoucmentsPage = (req, res, next) => {
+  res.render("annoucments", {
+    root: "views",
+    annoucment: allDataAboutUser.announcements,
+    pageTitle: "Ogłoszenia",
+  });
+};
 
-
-export {annoucmentsPage, calendarLibrusPage,gradePage,  forgottenPasswordPage,translate ,translatePage, newSheet ,showSheet, addToSheet, 
-eventPage, next, previous, editGoal, newGoal, deleteEvent, taskPage,
-goalPage, calendarPage, todolistPage, librusDashboard, librusPage, 
-notesPage, loginPage, landingPage, postDashboard, deletePage}
+export {
+  annoucmentsPage,
+  calendarLibrusPage,
+  gradePage,
+  forgottenPasswordPage,
+  translate,
+  translatePage,
+  newSheet,
+  showSheet,
+  addToSheet,
+  eventPage,
+  next,
+  previous,
+  editGoal,
+  newGoal,
+  deleteEvent,
+  taskPage,
+  goalPage,
+  calendarPage,
+  todolistPage,
+  librusDashboard,
+  librusPage,
+  notesPage,
+  loginPage,
+  landingPage,
+  postDashboard,
+  deletePage,
+};
