@@ -3,9 +3,8 @@ import  express  from "express";
 const router = express.Router();
 
 
-import {goalPage, editGoal, newGoal} from '../controllers/pathInfo.js'
+import { editGoal, newGoal} from '../controllers/pathInfoDashboard.js'
 
-router.use("/goal", goalPage);
 
 router.post("/admin/editGoal", editGoal);
 

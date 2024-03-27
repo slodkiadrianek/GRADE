@@ -5,11 +5,10 @@ import  express  from "express";
 
 const router = express.Router();
 
-import {translatePage, translate} from '../controllers/pathInfo.js'
+import { translate} from '../controllers/pathInfoDashboard.js'
 
 
 
-router.get("/translate", translatePage);
 
 router.post("/admin/translate", translate);
 

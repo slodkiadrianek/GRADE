@@ -1,0 +1,29 @@
+
+:root {
+    --Font: "Montserrat";
+    --Dark: #292929;
+    --light:#464646;
+    --green:#20de3f;
+    --white:#ffffff;
+    }
+
+.homework--box{
+    background-color: var(--light);
+    margin: 1vmax;
+    padding: 1vmax;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.5vmax;
+}
+.homework{
+    border: 0.3vmax solid var(--white);
+    border-radius: 0.4vmax;
+    padding: 1vmax;
+}
+.user{
+    font-size: 1.9vmax;
+    color:var(--green);
+}
+.element{
+    color: var(--white);
+}

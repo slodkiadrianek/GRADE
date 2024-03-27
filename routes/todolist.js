@@ -4,11 +4,10 @@ import  express  from "express";
 
 const router = express.Router();
 
-import {todolistPage, taskPage, deletePage} from '../controllers/pathInfo.js'
+import { taskPage, deletePage} from '../controllers/pathInfoDashboard.js'
 
 
 
-router.get("/todolist", todolistPage);
 
 router.post("/admin/newtask", taskPage);
 

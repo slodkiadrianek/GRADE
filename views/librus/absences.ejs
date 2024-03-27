@@ -1,0 +1,19 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="css/absences.css">
+<script defer src="js/absencesUse.js"></script>
+</head>
+<body>
+    <%-include('../includes/body.ejs') %>
+<section class="content--box">
+    <% for(let el of absencesList[0]) {%>
+<article class="absences">
+<h2 class="data"><%=el.date%>: </h2>
+<ul class="list"> 
+<% for(let type of el.table) { console.log(type)%>
+    <li class="list--element--ab"><%=type === null ? '-': type.type%></li>
+    <%}%>
+</ul>
+</article>
+<%}%>
+</section>
+</body>

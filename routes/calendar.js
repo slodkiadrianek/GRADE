@@ -5,11 +5,10 @@ import  express  from "express";
 
 const router = express.Router();
 
-import {calendarPage, previous, next,  eventPage, deleteEvent} from '../controllers/pathInfo.js'
+import { previous, next,  eventPage, deleteEvent} from '../controllers/pathInfoDashboard.js'
 
 
 
-router.get("/calendar", calendarPage);
 
 router.post("/admin/previous", previous);
 

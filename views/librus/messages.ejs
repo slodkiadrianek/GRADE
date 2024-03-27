@@ -1,0 +1,16 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="css/homework.css">
+<script defer  src="js/messagesUse.js"></script>
+</head>
+<body>
+    <%- include('../includes/body.ejs') %>
+    <section class="homework--box">
+        <% for(let el of messagesList) {%>
+        <article class="homework">
+            <h2 class="user"><%=el.user%></h2>
+            <p class="element">Temat: <%=el.title%></p>
+            <p class="element date--read" data-read="<%=el.read%>">Data: <%=el.date%></p>
+        </article>
+        <%}%>
+    </section>
+</body>

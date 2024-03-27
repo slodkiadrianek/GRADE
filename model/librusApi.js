@@ -18,7 +18,7 @@ export default class SendData {
       const results = {};
 
       //list info
-      results.info = client.inbox.listInbox(5);
+      results.info = await client.inbox.listInbox(5);
       // List announcements
       results.announcements = await client.inbox.listAnnouncements();
       // console.log(results.announcements);
@@ -38,8 +38,13 @@ export default class SendData {
       // Get lucky number
       results.luckyNumber = await client.info.getLuckyNumber();
 
+      results.homework = await client.homework.listHomework(24374);
+
       // Get notifications
       results.notifications = await client.info.getNotifications();
+
+      // results.grade = await client.info.getGrade(id)
+
 
       return results;
     } catch (error) {

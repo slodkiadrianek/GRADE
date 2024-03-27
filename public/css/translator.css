@@ -19,6 +19,7 @@
   width: 95%;
   margin-inline: 1.7vmax;
   height: 100%;
+  color: rgb(255, 223, 44);
 }
 .output--box,
 .select--box {
