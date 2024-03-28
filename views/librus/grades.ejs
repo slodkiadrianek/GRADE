@@ -1,5 +1,6 @@
 <%- include('../includes/head.ejs') %>
 <link rel="stylesheet" href="css/grades.css">
+<script defer src="js/gradesUSe.js"></script>
 </head>
 <body>
     <%- include('../includes/body.ejs') %>
@@ -10,33 +11,34 @@ class="grades--box">
     <h2 class="subject--name"><%=el.name%></h2>
     <div class="semester--box">
         <h3 class="text--semestr">Semestr 1</h3> 
-        <% for(let grade of el.semester[0].grades) { console.log(grade)%>
+        <% for(let grade of el.semester[0].grades) { %>
         <div class="grade--box">
-            <p><%=grade.value%></p>
+            <a href="/grades/<%=grade.id%>"><%=grade.value%></a> 
+            <p class="info--grade" ><%=grade.info%></p>
         </div>
         <%}%>
     </div>
     <div class="semester--box">
         <h3 class="text--semestr">Śródroczna</h3> 
-        <% for(let grade of el.semester[1].grades) { console.log(grade)%>
+        <% for(let grade of el.semester[1].grades) {%>
             <div class="grade--box">
-                <p><%=grade.value%></p>
+                <a href="/grades/<%=grade.id%>"><%=grade.value%></a>
             </div>
             <%}%>
     </div>
     <div class="semester--box">
         <h3 class="text--semestr">Semestr 2</h3> 
-        <% for(let grade of el.semester[2].grades) { console.log(grade)%>
+        <% for(let grade of el.semester[2].grades) {%>
             <div class="grade--box">
-                <p><%=grade.value%></p>
+                <a href="/grades/<%=grade.id%>"><%=grade.value%></a>
             </div>
             <%}%>
     </div>
     <div class="semester--box">
         <h3 class="text--semestr">Roczna</h3> 
-        <% for(let grade of el.semester[3].grades) { console.log(grade)%>
+        <% for(let grade of el.semester[3].grades) { %>
             <div class="grade--box">
-                <p><%=grade.value%></p>
+                <a href="/grades/<%=grade.id%>"><%=grade.value%></a>
             </div>
             <%}%>
     </div>

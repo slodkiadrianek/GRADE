@@ -1,5 +1,6 @@
 import giveData from "../model/librusApi.js";
 import calendarMoves from "../model/calendarM.js";
+import findById from "../model/grade.js";
 let allDataAboutUser;
 let UserData;
 let messageData;
@@ -14,13 +15,11 @@ const librusDashboard = (req, res, next) => {
     .showData(req.body.login, req.body.password)
     .then((data) => {
       allDataAboutUser = data; // Tutaj otrzymasz wszystkie dane
-      console.log(allDataAboutUser.calendar);
     })
     .then(() =>
       allDataAboutUser.accountInfo.then((accInfo) => (UserData = accInfo))
     )
     .then(() => {
-      console.log(messageData);
       res.render("librus/librusDashboard", {
         root: "views",
         notifications: allDataAboutUser.notifications,
@@ -31,7 +30,7 @@ const librusDashboard = (req, res, next) => {
       });
     });
 };
-const gradePage = (req, res, next) => {
+const gradesPage = (req, res, next) => {
   res.render("librus/grades", {
     root: "views",
     pageTitle: "Oceny",
@@ -80,12 +79,23 @@ const messagePage = (req, res, next) => {
   });
 };
 
+const gradePage = (req, res, next) => {
+  const gradeId = req.params.gradeId;
+  const gradeEl = findById(allDataAboutUser.grades, gradeId);
+  res.render("librus/grade", {
+    root: "views",
+    pageTitle: "Ocena",
+    grade: gradeEl,
+  });
+};
+
 export {
   messagePage,
   absencesPage,
   homeworkPage,
   annoucmentsPage,
   calendarLibrusPage,
-  gradePage,
+  gradesPage,
   librusDashboard,
+  gradePage,
 };
