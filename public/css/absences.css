@@ -1,32 +1,31 @@
 :root {
-    --Font: "Montserrat";
-    --Dark: #292929;
-    --light:#464646;
-    --green:#20de3f;
-    --white:#ffffff;
-  }
+  --Font: "Montserrat";
+  --Dark: #292929;
+  --light: #464646;
+  --green: #20de3f;
+  --white: #ffffff;
+}
 
-.content--box{
-    background-color: var(--light);
-    margin: 1vmax;
-    padding: 1vmax;
-    display: flex;
-    flex-direction: column;
-    row-gap: 1.5vmax;
+.content--box {
+  background-color: var(--light);
+  margin: 1vmax;
+  padding: 1vmax;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.5vmax;
 }
-.absences{
-    display: flex;
-    align-items: center;
-    column-gap: 1vmax;
+.absences {
+  display: flex;
+  align-items: center;
+  column-gap: 1vmax;
 }
-.list--element--ab{
-    display: inline;
-    background-color: var(--green);
-    padding: 0.3vmax 0.7vmax;
-    font-size: 1.5vmax;
+.list--element--ab {
+  display: inline;
+  background-color: var(--green);
+  padding: 0.3vmax 0.7vmax;
+  font-size: 1.5vmax;
 }
-.data{
-    color: var(--white);
-    font-size: 1.7vmax;
-    /* color: #e6e6e6; */
-    }
+.data {
+  color: var(--white);
+  font-size: 1.7vmax;
+}

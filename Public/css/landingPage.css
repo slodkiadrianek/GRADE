@@ -8,8 +8,8 @@
 :root {
   --Font: "Montserrat";
   --Dark: #292929;
-  --light:#464646;
-  --green:#20de3f;
+  --light: #464646;
+  --green: #20de3f;
   --white: #ffffff;
 }
 
@@ -38,7 +38,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* background-color: rgb(34, 34, 34); */
   color: var(--white);
   padding: 2vmax 2.5vmax;
   font-family: var(--Font);
@@ -83,11 +82,3 @@ body {
   text-decoration: none;
   font-size: 1.2vmax;
 }
-.link:hover {
-  color: aqua;
-  list-style-type: none;
-}
-
-
-
-

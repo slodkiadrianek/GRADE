@@ -9,13 +9,13 @@
   --Font: "Montserrat";
 }
 
-    body{
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background-image: linear-gradient(
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(
     to right top,
     #3b3b3b,
     #5b5b5b,
@@ -30,61 +30,59 @@
     #545454,
     #343434
   );
-  
-    }
-    .main--box{
-        background-color: #292929;
-        padding: 3vmax;
-        border-radius: 1vmax;
-        display: flex;
-        flex-direction: column;
-    }
-    .form--box{
-        display: flex;
-        flex-direction: column;
-        gap: 1vmax;
-        background-color: #292929;
-    }
-    .title{
-        text-align: center;
-        color: white;
-        font-family: var(--Font);
-        /* margin-top: -10vmax; */
-        margin-bottom: 5vmax;
-        font-size: 3vmax;
-    }
-    .input--box{
-        padding: 1vmax;
-        font-size: 1.5vmax;
-        font-size: var(--Font);
-        background-color: #5e5e5e;
-        border: none;
-        color: white;
-        border-radius: 0.4vmax;
-    }
-    .button--box{
-        padding: 1vmax;
-        border: none;
-        border-radius: 0.4vmax;
-        font-family: var(--Font);
-        font-weight: 600;
-        cursor: pointer;
-    }
-    .button--register{
-        margin-top: 1vmax;
-    }
-    .link{
-        text-decoration: none;
-        color: black;        
-    }
-    .input--box::placeholder{
-        color: white;
-        font-family: var(--Font);
-    }
-    .info--users{
-        /* text-wrap:wrap; */
-        white-space: pre-wrap;
-        color: white;
-        font-family: var(--Font);
-        text-align: center;
-    }
+}
+.main--box {
+  background-color: #292929;
+  padding: 3vmax;
+  border-radius: 1vmax;
+  display: flex;
+  flex-direction: column;
+}
+.form--box {
+  display: flex;
+  flex-direction: column;
+  gap: 1vmax;
+  background-color: #292929;
+}
+.title {
+  text-align: center;
+  color: white;
+  font-family: var(--Font);
+  /* margin-top: -10vmax; */
+  margin-bottom: 5vmax;
+  font-size: 3vmax;
+}
+.input--box {
+  padding: 1vmax;
+  font-size: 1.5vmax;
+  font-size: var(--Font);
+  background-color: #5e5e5e;
+  border: none;
+  color: white;
+  border-radius: 0.4vmax;
+}
+.button--box {
+  padding: 1vmax;
+  border: none;
+  border-radius: 0.4vmax;
+  font-family: var(--Font);
+  font-weight: 600;
+  cursor: pointer;
+}
+.button--register {
+  margin-top: 1vmax;
+}
+.link {
+  text-decoration: none;
+  color: black;
+}
+.input--box::placeholder {
+  color: white;
+  font-family: var(--Font);
+}
+.info--users {
+  white-space: pre-wrap;
+  color: white;
+  font-family: var(--Font);
+  text-align: center;
+}

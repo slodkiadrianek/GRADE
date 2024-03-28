@@ -8,9 +8,9 @@
 :root {
   --Font: "Montserrat";
   --Dark: #292929;
-  --light:#464646;
-  --green:#20de3f;
-  --white:#ffffff;
+  --light: #464646;
+  --green: #20de3f;
+  --white: #ffffff;
 }
 
 .calendar {
@@ -31,18 +31,20 @@
 }
 .month {
   margin-top: 2vmax;
-  margin-inline: 4vmax;
+  margin-inline: 2vmax;
   display: grid;
   grid-template-columns: auto auto auto auto auto auto auto;
   row-gap: 1vmax;
   background-color: var(--light);
   padding: 1vmax;
+  column-gap: 1vmax;
   place-items: center;
   border-radius: 0.4vmax;
 }
 .day {
   border: 0.3vmax solid var(--white);
-  width: 11vmax;
+  min-width: 5vmax;
+  max-width: 11vmax;
   border-radius: 0.4vmax;
   display: flex;
   flex-direction: column;
@@ -52,7 +54,6 @@
   height: 10vmax;
 }
 .events {
-  /* margin-block: 2vmax; */
   max-height: 5vmax;
   background-color: transparent;
   overflow-y: auto;
@@ -127,18 +128,18 @@
   font-size: 1.5vmax;
   background-color: transparent;
   border: none;
-  width:9vmax ;
+  width: 9vmax;
 }
 .arrow {
   color: var(--white);
   cursor: pointer;
 }
-.form--box{
+.form--box {
   width: fit-content;
   display: flex;
   align-items: center;
 }
-.delete--button{
+.delete--button {
   background-color: transparent;
   padding: 0.2vmax;
   color: var(--white);

@@ -16,10 +16,10 @@ import path from "path";
 import getError from "./controllers/error.js";
 
 app.use(
-  express.static(path.join('E:/GRADE-main', "public"))
+  express.static(path.join("C:/Users/Adrian/Desktop/Gradetion/GRADE", "public"))
 );
 //'E:/GRADE-main'
-//"C:/Users/Adrian/Desktop/Gradetion/GRADE
+//"
 
 import landingPage from "./routes/basicMovements.js";
 

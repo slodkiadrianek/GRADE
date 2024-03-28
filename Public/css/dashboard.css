@@ -8,23 +8,21 @@
 :root {
   --Font: "Montserrat";
   --Dark: #292929;
-  --light:#464646;
-  --green:#20de3f;
-  --white:#ffffff;
+  --light: #464646;
+  --green: #20de3f;
+  --white: #ffffff;
 }
 body {
   min-height: 100vh;
   background-color: var(--Dark);
   display: flex;
-  /* flex-direction: column; */
   font-family: var(--Font);
   overflow-x: hidden;
 }
 .header {
   display: flex;
-  align-items: center;
+  align-items: end;
   justify-content: space-between;
-  /* background-color: rgb(34, 34, 34); */
   color: var(--white);
   padding: 2vmax 2vmax;
   padding-top: 1vmax;
@@ -134,13 +132,13 @@ body {
   align-items: start;
   justify-content: space-between;
 }
-.goal--box{
+.goal--box {
   width: 30%;
 }
-.todolist--box{
+.todolist--box {
   width: 30%;
 }
-.lastNote--box{
+.lastNote--box {
   width: 40%;
   text-wrap: wrap;
 }
@@ -153,7 +151,7 @@ body {
 
 .box--title {
   font-size: 1.5vmax;
-  margin-bottom: .6vmax;
+  margin-bottom: 0.6vmax;
 }
 .common--text {
   font-family: var(--Font);
@@ -176,49 +174,23 @@ body {
   flex-direction: column;
   margin-top: -0.1vmax;
 }
-.ball{
+.ball {
   height: 0.9vmax;
   background-color: var(--white);
   border-radius: 50%;
   width: 0.9vmax;
 }
 .right--side,
-.left--side{
+.left--side {
   display: flex;
   align-items: center;
   column-gap: 1vmax;
   cursor: pointer;
   font-size: 1.5vmax;
 }
-.right--side{
-  cursor:auto;
+.right--side {
+  cursor: auto;
 }
-.done{
-  color: var(--green);
-  text-decoration: line-through;
+.icon--img {
+  width: 3vmax;
 }
-.done--ball{
-  background-color: var(--green);
-}
-
-/* width
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-/* Track */
-/* ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey; 
-  border-radius: 10px;
-} */
-
-/* Handle */
-/* ::-webkit-scrollbar-thumb {
-  background: grey; 
-  border-radius: 10px;
-} */
-
-/* Handle on hover */
-/* ::-webkit-scrollbar-thumb:hover {
-  background: grey; 
-}  */
